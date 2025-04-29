@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Fashion Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #000000;
+            --secondary: #ffffff;
+            --accent: #f7fafc;
+            --text: #1a202c;
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: var(--accent);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .header__link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header__link:hover {
+            color: var(--primary);
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: url('https://via.placeholder.com/1200x600') center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--secondary);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+        }
+
+        /* --------------------------------------
+           Products Section
+        -------------------------------------- */
+        .products {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-card__image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-card__content {
+            padding: 1.5rem;
+        }
+
+        .product-card__title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card__price {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        /* --------------------------------------
+           Footer
+        -------------------------------------- */
+        .footer {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer__text {
+            font-size: 0.9rem;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero__title {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero__title {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">VogueVibe</a>
+            <nav class="header__nav">
+                <a href="#" class="header__link">Shop</a>
+                <a href="#" class="header__link">Collections</a>
+                <a href="#" class="header__link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero__title">Timeless Style</h1>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <article class="product-card">
+            <img src="https://via.placeholder.com/300x300" alt="Product 1" class="product-card__image">
+            <div class="product-card__content">
+                <h3 class="product-card__title">Classic Dress</h3>
+                <p class="product-card__price">$89.99</p>
+            </div>
+        </article>
+        <article class="product-card">
+            <img src="https://via.placeholder.com/300x300" alt="Product 2" class="product-card__image">
+            <div class="product-card__content">
+                <h3 class="product-card__title">Tailored Jacket</h3>
+                <p class="product-card__price">$129.99</p>
+            </div>
+        </article>
+        <article class="product-card">
+            <img src="https://via.placeholder.com/300x300" alt="Product 3" class="product-card__image">
+            <div class="product-card__content">
+                <h3 class="product-card__title">Casual Shirt</h3>
+                <p class="product-card__price">$49.99</p>
+            </div>
+        </article>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer__text">© 2025 VogueVibe. All rights reserved.</p>
+    </footer>
+</body>
+</html>

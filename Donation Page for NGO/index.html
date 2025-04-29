@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Page for NGO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #38a169;
+            --secondary: #ffffff;
+            --text: #1a202c;
+            --accent: #f7fafc;
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            background: var(--accent);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--secondary);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .hero__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero__text {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #4a5568;
+        }
+
+        /* --------------------------------------
+           Donation Form
+        -------------------------------------- */
+        .donation {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            background: var(--secondary);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        .donation__form {
+            padding: 2rem;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .donation__amounts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .donation__amount {
+            background: #edf2f7;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .donation__amount:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .donation__input {
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .donation__input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .donation__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .donation__button:hover {
+            background: #2f855a;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (max-width: 600px) {
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .donation__form {
+                padding: 1.5rem;
+            }
+
+            .donation__amount {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero__title">Support Our Mission</h1>
+        <p class="hero__text">Your donation helps us provide education and healthcare to communities in need.</p>
+    </section>
+
+    <!-- Donation Form -->
+    <section class="donation">
+        <form class="donation__form">
+            <div class="donation__amounts">
+                <div class="donation__amount">$10</div>
+                <div class="donation__amount">$25</div>
+                <div class="donation__amount">$50</div>
+                <div class="donation__amount">$100</div>
+            </div>
+            <input type="number" class="donation__input" placeholder="Custom Amount" min="1">
+            <input type="text" class="donation__input" placeholder="Full Name" required>
+            <input type="email" class="donation__input" placeholder="Email Address" required>
+            <button type="submit" class="donation__button">Donate Now</button>
+        </form>
+    </section>
+</body>
+</html>

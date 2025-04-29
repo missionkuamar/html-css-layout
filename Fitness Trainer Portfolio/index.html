@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Trainer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #e53e3e;
+            --secondary: #ffffff;
+            --text: #1a202c;
+            --accent: #f7fafc;
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: var(--accent);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .header__link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header__link:hover {
+            color: var(--primary);
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: url('https://via.placeholder.com/1200x600') center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--secondary);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero__title {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .hero__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero__button:hover {
+            background: #c53030;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Services Section
+        -------------------------------------- */
+        .services {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .service-card__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card__text {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .services {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero__title {
+                font-size: 4.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero__title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">FitPro</a>
+            <nav class="header__nav">
+                <a href="#" class="header__link">Services</a>
+                <a href="#" class="header__link">Testimonials</a>
+                <a href="#" class="header__link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1 class="hero__title">Transform Your Body</h1>
+            <a href="#services" class="hero__button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <article class="service-card">
+            <h3 class="service-card__title">Personal Training</h3>
+            <p class="service-card__text">Customized workouts tailored to your goals.</p>
+        </article>
+        <article class="service-card">
+            <h3 class="service-card__title">Nutrition Plans</h3>
+            <p class="service-card__text">Healthy eating plans to fuel your progress.</p>
+        </article>
+        <article class="service-card">
+            <h3 class="service-card__title">Group Classes</h3>
+            <p class="service-card__text">Fun and motivating group fitness sessions.</p>
+        </article>
+    </section>
+</body>
+</html>

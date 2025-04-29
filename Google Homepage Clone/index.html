@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Homepage Clone</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .header__link {
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .header__link:hover {
+            color: #1a73e8;
+            text-decoration: underline;
+        }
+
+        /* --------------------------------------
+           Main Search Section
+        -------------------------------------- */
+        .search {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .search__logo {
+            width: 272px;
+            margin-bottom: 30px;
+        }
+
+        .search__form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search__input-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 10px 15px;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search__input-container:hover {
+            box-shadow: 0 2px 8px rgba(32, 33, 36, 0.2);
+        }
+
+        .search__input {
+            border: none;
+            font-size: 1rem;
+            flex: 1;
+            outline: none;
+        }
+
+        .search__buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search__button {
+            background: #f8f9fa;
+            color: #3c4043;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search__button:hover {
+            background: #f1f3f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --------------------------------------
+           Footer
+        -------------------------------------- */
+        .footer {
+            background: #f2f2f2;
+            padding: 15px 20px;
+            font-size: 0.85rem;
+            color: #70757a;
+        }
+
+        .footer__container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer__links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer__link {
+            color: #70757a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover {
+            color: #1a73e8;
+            text-decoration: underline;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .footer__container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .search__logo {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .search__logo {
+                width: 200px;
+            }
+
+            .search__input-container {
+                padding: 8px 12px;
+            }
+
+            .search__buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search__button {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="header__link">Gmail</a>
+        <a href="#" class="header__link">Images</a>
+        <a href="#" class="header__link">Sign in</a>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo" class="search__logo">
+        <form class="search__form">
+            <div class="search__input-container">
+                <input type="text" class="search__input" placeholder="Search Google or type a URL">
+            </div>
+            <div class="search__buttons">
+                <button type="submit" class="search__button">Google Search</button>
+                <button type="submit" class="search__button">I'm Feeling Lucky</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__links">
+                <a href="#" class="footer__link">About</a>
+                <a href="#" class="footer__link">Advertising</a>
+                <a href="#" class="footer__link">Business</a>
+                <a href="#" class="footer__link">How Search works</a>
+            </div>
+            <div class="footer__links">
+                <a href="#" class="footer__link">Privacy</a>
+                <a href="#" class="footer__link">Terms</a>
+                <a href="#" class="footer__link">Settings</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexlify Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Gallery Section -->
+    <section class="gallery-container">
+        <div class="container">
+            <h2>Explore Our Gallery</h2>
+            <p>Discover a collection of stunning visuals from Nexlify Gallery.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/600x400" alt="Abstract Art" data-full="https://via.placeholder.com/1200x800" data-caption="Vibrant abstract artwork">
+                    <div class="overlay">
+                        <p>Abstract Art</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/600x400" alt="Cityscape" data-full="https://via.placeholder.com/1200x800" data-caption="Urban cityscape at dusk">
+                    <div class="overlay">
+                        <p>Cityscape</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/600x400" alt="Nature" data-full="https://via.placeholder.com/1200x800" data-caption="Serene forest landscape">
+                    <div class="overlay">
+                        <p>Nature</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/600x400" alt="Portrait" data-full="https://via.placeholder.com/1200x800" data-caption="Expressive portrait photography">
+                    <div class="overlay">
+                        <p>Portrait</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/600x400" alt="Architecture" data-full="https://via.placeholder.com/1200x800" data-caption="Modern architectural design">
+                    <div class="overlay">
+                        <p>Architecture</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/600x400" alt="Minimalism" data-full="https://via.placeholder.com/1200x800" data-caption="Minimalist aesthetic composition">
+                    <div class="overlay">
+                        <p>Minimalism</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Image Lightbox">
+        <span class="close" id="close-lightbox" role="button" aria-label="Close lightbox">×</span>
+        <button class="nav-arrow prev" id="prev-arrow" aria-label="Previous image">&#10094;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-image">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+        <button class="nav-arrow next" id="next-arrow" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Nexlify Gallery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Invitation Page</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f9fafb;
+            min-height: 100vh;
+            color: #1f2937;
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1200x600') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 20px;
+            animation: fadeInHero 1s ease-in-out;
+        }
+
+        .hero__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hero__subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* --------------------------------------
+           Event Details Section
+        -------------------------------------- */
+        .event-details {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .event-details__title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .event-details__info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 1.1rem;
+            color: #4b5563;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        /* --------------------------------------
+           RSVP Form Section
+        -------------------------------------- */
+        .rsvp {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            padding: 20px;
+        }
+
+        .rsvp__title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .rsvp__form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .rsvp__input {
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .rsvp__input:focus {
+            border-color: #3b82f6;
+            outline: none;
+        }
+
+        .rsvp__button {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .rsvp__button:hover {
+            background: #2563eb;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           Footer
+        -------------------------------------- */
+        .footer {
+            background: #1f2937;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer__text {
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeInHero {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .hero__title {
+                font-size: 3.5rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1.5rem;
+            }
+
+            .event-details__info {
+                flex-direction: row;
+                justify-content: center;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1rem;
+            }
+
+            .event-details__title {
+                font-size: 1.6rem;
+            }
+
+            .rsvp {
+                margin: 0 20px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero__title">Annual Tech Summit 2025</h1>
+        <p class="hero__subtitle">Join us for an inspiring day of innovation and networking!</p>
+    </section>
+
+    <!-- Event Details Section -->
+    <section class="event-details">
+        <h2 class="event-details__title">Event Details</h2>
+        <div class="event-details__info">
+            <p><strong>Date:</strong> May 15, 2025</p>
+            <p><strong>Time:</strong> 9:00 AM - 5:00 PM</p>
+            <p><strong>Location:</strong> Tech Hub, Silicon Valley</p>
+        </div>
+    </section>
+
+    <!-- RSVP Form Section -->
+    <section class="rsvp">
+        <h2 class="rsvp__title">RSVP Now</h2>
+        <form class="rsvp__form">
+            <input type="text" class="rsvp__input" placeholder="Full Name" required>
+            <input type="email" class="rsvp__input" placeholder="Email Address" required>
+            <button type="submit" class="rsvp__button">Confirm Attendance</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer__text">© 2025 Tech Summit. All rights reserved.</p>
+    </footer>
+</body>
+</html>

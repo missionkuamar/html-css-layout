@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player UI (HTML/CSS only)</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #e5e7eb;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* --------------------------------------
+           Video Player
+        -------------------------------------- */
+        .video-player {
+            background: #e5e7eb;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .video-player__video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-player__controls {
+            background: #ffffff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-player__button {
+            background: #e5e7eb;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-player__button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-player__progress {
+            flex: 1;
+            height: 8px;
+            background: #d1d5db;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .video-player__progress-bar {
+            width: 30%; /* Static for demo; JavaScript needed for dynamic */
+            height: 100%;
+            background: #3b82f6;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .video-player__volume {
+            width: 100px;
+            height: 8px;
+            background: #d1d5db;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .video-player__volume-bar {
+            width: 70%; /* Static for demo */
+            height: 100%;
+            background: #3b82f6;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (max-width: 600px) {
+            .video-player {
+                max-width: 100%;
+            }
+
+            .video-player__controls {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 8px;
+            }
+
+            .video-player__button {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .video-player__volume {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Player -->
+    <div class="video-player" role="region" aria-label="Custom Video Player">
+        <video class="video-player__video" poster="https://via.placeholder.com/800x450">
+            <source src="sample-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-player__controls">
+            <button class="video-player__button" aria-label="Play/Pause">▶</button>
+            <div class="video-player__progress">
+                <div class="video-player__progress-bar"></div>
+            </div>
+            <button class="video-player__button" aria-label="Mute/Unmute">🔊</button>
+            <div class="video-player__volume">
+                <div class="video-player__volume-bar"></div>
+            </div>
+            <button class="video-player__button" aria-label="Full Screen">⛶</button>
+        </div>
+    </div>
+</body>
+</html>

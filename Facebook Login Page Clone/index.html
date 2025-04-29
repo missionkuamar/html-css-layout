@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login Page Clone</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica', Arial, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* --------------------------------------
+           Main Container
+        -------------------------------------- */
+        .login {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 1000px;
+            width: 100%;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        /* Branding Section */
+        .login__branding {
+            text-align: center;
+        }
+
+        .login__logo {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1877f2;
+            margin-bottom: 10px;
+        }
+
+        .login__tagline {
+            font-size: 1.5rem;
+            color: #1c1e21;
+        }
+
+        /* Form Section */
+        .login__form-container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .login__form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .login__input {
+            padding: 12px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .login__input:focus {
+            border-color: #1877f2;
+            outline: none;
+        }
+
+        .login__button {
+            background: #1877f2;
+            color: #ffffff;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .login__button:hover {
+            background: #166fe5;
+            transform: scale(1.02);
+        }
+
+        .login__link {
+            text-align: center;
+            color: #1877f2;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .login__link:hover {
+            color: #166fe5;
+            text-decoration: underline;
+        }
+
+        .login__signup {
+            background: #42b72a;
+            color: #ffffff;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .login__signup:hover {
+            background: #36a420;
+            transform: scale(1.02);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .login {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .login__branding {
+                text-align: left;
+                flex: 1;
+            }
+
+            .login__form-container {
+                flex: 1;
+            }
+
+            .login__logo {
+                font-size: 5rem;
+            }
+
+            .login__tagline {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .login__logo {
+                font-size: 3rem;
+            }
+
+            .login__tagline {
+                font-size: 1.2rem;
+            }
+
+            .login__form-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Section -->
+    <div class="login">
+        <div class="login__branding">
+            <h1 class="login__logo">facebook</h1>
+            <p class="login__tagline">Connect with friends and the world around you on Facebook.</p>
+        </div>
+        <div class="login__form-container">
+            <form class="login__form">
+                <input type="text" class="login__input" placeholder="Email or phone number" required>
+                <input type="password" class="login__input" placeholder="Password" required>
+                <button type="submit" class="login__button">Log In</button>
+                <a href="#" class="login__link">Forgot password?</a>
+            </form>
+            <a href="#" class="login__signup">Create new account</a>
+        </div>
+    </div>
+</body>
+</html>

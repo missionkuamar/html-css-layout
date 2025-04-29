@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Profile Page Clone</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #f3f6f8;
+            min-height: 100vh;
+            color: #0a0a0a;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0a66c2;
+            text-decoration: none;
+        }
+
+        .header__search {
+            flex: 1;
+            display: flex;
+        }
+
+        .header__search-input {
+            padding: 8px;
+            border: 1px solid #ccd0d5;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header__link {
+            color: #0a0a0a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .header__link:hover {
+            color: #0a66c2;
+        }
+
+        /* --------------------------------------
+           Profile Section
+        -------------------------------------- */
+        .profile {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .profile__header {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .profile__banner {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .profile__info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .profile__avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: -60px;
+            border: 4px solid #ffffff;
+        }
+
+        .profile__name {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .profile__headline {
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+
+        .profile__button {
+            background: #0a66c2;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .profile__button:hover {
+            background: #004182;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           Experience Section
+        -------------------------------------- */
+        .experience {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .experience__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .experience__item {
+            padding: 15px 0;
+            border-bottom: 1px solid #e5e7eb;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .experience__item:last-child {
+            border-bottom: none;
+        }
+
+        .experience__role {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience__company {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .experience__duration {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .profile__info {
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .header__container {
+                flex-wrap: nowrap;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header__search {
+                width: 100%;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .profile__avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .profile__name {
+                font-size: 1.5rem;
+            }
+
+            .profile__banner {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">LinkedIn</a>
+            <div class="header__search">
+                <input type="text" class="header__search-input" placeholder="Search">
+            </div>
+            <nav class="header__nav">
+                <a href="#" class="header__link">Home</a>
+                <a href="#" class="header__link">Network</a>
+                <a href="#" class="header__link">Jobs</a>
+                <a href="#" class="header__link">Messaging</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile">
+        <div class="profile__header">
+            <img src="https://via.placeholder.com/1200x200" alt="Profile Banner" class="profile__banner">
+            <div class="profile__info">
+                <img src="https://via.placeholder.com/120" alt="Profile Avatar" class="profile__avatar">
+                <div>
+                    <h1 class="profile__name">John Doe</h1>
+                    <p class="profile__headline">Software Engineer at TechCorp</p>
+                    <a href="#" class="profile__button">Connect</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="experience">
+            <h2 class="experience__title">Experience</h2>
+            <div class="experience__item">
+                <h3 class="experience__role">Software Engineer</h3>
+                <p class="experience__company">TechCorp</p>
+                <p class="experience__duration">Jan 2022 - Present</p>
+            </div>
+            <div class="experience__item">
+                <h3 class="experience__role">Junior Developer</h3>
+                <p class="experience__company">Startup Inc.</p>
+                <p class="experience__duration">Jun 2020 - Dec 2021</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

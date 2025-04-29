@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated SVG Icons Page</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .header__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header__subtitle {
+            font-size: 1.2rem;
+            color: #d1d5db;
+        }
+
+        /* --------------------------------------
+           Icons Grid
+        -------------------------------------- */
+        .icons {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .icon {
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .icon:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon__svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .icon__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* SVG Animations */
+        .icon__svg--home path {
+            stroke: #3b82f6;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .icon:hover .icon__svg--home path {
+            stroke-dashoffset: 0;
+        }
+
+        .icon__svg--user path {
+            stroke: #22c55e;
+            transform-origin: center;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .icon:hover .icon__svg--user path {
+            transform: scale(1.2);
+        }
+
+        .icon__svg--settings path {
+            stroke: #f59e0b;
+            transform-origin: center;
+            transition: transform 0.5s ease;
+        }
+
+        .icon:hover .icon__svg--settings path {
+            transform: rotate(180deg);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .icons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header__title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .icons {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__title {
+                font-size: 2rem;
+            }
+
+            .header__subtitle {
+                font-size: 1rem;
+            }
+
+            .icon__svg {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <h1 class="header__title">Animated SVG Icons</h1>
+        <p class="header__subtitle">Interactive and modern icons for your projects</p>
+    </header>
+
+    <!-- Icons Grid -->
+    <section class="icons" role="region" aria-label="Icon Gallery">
+        <div class="icon">
+            <svg class="icon__svg icon__svg--home" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M3 12L12 3L21 12V20C21 21.1 20.1 22 19 22H5C3.9 22 3 21.1 3 20V12Z"/>
+            </svg>
+            <h2 class="icon__title">Home</h2>
+        </div>
+        <div class="icon">
+            <svg class="icon__svg icon__svg--user" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M20 21V19C20 17.9 19.1 17 18 17H6C4.9 17 4 17.9 4 19V21"/>
+                <path d="M12 3C10.3 3 9 4.3 9 6C9 7.7 10.3 9 12 9C13.7 9 15 7.7 15 6C15 4.3 13.7 3 12 3Z"/>
+            </svg>
+            <h2 class="icon__title">User</h2>
+        </div>
+        <div class="icon">
+            <svg class="icon__svg icon__svg--settings" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 15C13.7 15 15 13.7 15 12C15 10.3 13.7 9 12 9C10.3 9 9 10.3 9 12C9 13.7 10.3 15 12 15Z"/>
+                <path d="M19.4 15C19.7 15.6 20 16.3 20 17H4C4 16.3 4.3 15.6 4.6 15C5.4 13.6 7.2 12.5 9.2 12.2C10.2 11.1 11.1 10.5 12 10.5C12.9 10.5 13.8 11.1 14.8 12.2C16.8 12.5 18.6 13.6 19.4 15Z"/>
+            </svg>
+            <h2 class="icon__title">Settings</h2>
+        </div>
+    </section>
+</body>
+</html>

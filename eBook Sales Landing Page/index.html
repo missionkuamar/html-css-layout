@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBook Sales Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #d69e2e;
+            --secondary: #1a202c;
+            --accent: #ffffff;
+            --text: #2d3748;
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background: var(--accent);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1200x600') center/cover;
+            color: var(--accent);
+            text-align: center;
+            padding: 4rem 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero__title {
+            font-family: 'Lora', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero__subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero__button:hover {
+            background: #b7791f;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Testimonials Section
+        -------------------------------------- */
+        .testimonials {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--accent);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card__text {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card__author {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .testimonials {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero__title {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero__title">Master Your Future</h1>
+        <p class="hero__subtitle">Unlock your potential with our transformative eBook on personal growth.</p>
+        <a href="#" class="hero__button">Buy Now for $9.99</a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <article class="testimonial-card">
+            <p class="testimonial-card__text">"This eBook changed my perspective on success!"</p>
+            <p class="testimonial-card__author">Jane Doe</p>
+        </article>
+        <article class="testimonial-card">
+            <p class="testimonial-card__text">"A must-read for anyone seeking growth."</p>
+            <p class="testimonial-card__author">John Smith</p>
+        </article>
+    </section>
+</body>
+</html>

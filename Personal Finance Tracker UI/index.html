@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker UI</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            min-height: 100vh;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* --------------------------------------
+           Dashboard Container
+        -------------------------------------- */
+        .dashboard {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        /* Sidebar */
+        .dashboard__sidebar {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .dashboard__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .dashboard__nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .dashboard__nav-link {
+            color: #d1d5db;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .dashboard__nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        /* Main Content */
+        .dashboard__main {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Balance Card */
+        .dashboard__balance {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .dashboard__balance:hover {
+            transform: scale(1.02);
+        }
+
+        .dashboard__balance-title {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 10px;
+        }
+
+        .dashboard__balance-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        /* Transactions */
+        .dashboard__transactions {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .dashboard__transactions-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .dashboard__transaction-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .dashboard__transaction {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .dashboard__transaction:hover {
+            transform: translateY(-3px);
+        }
+
+        .dashboard__transaction-name {
+            font-size: 1rem;
+        }
+
+        .dashboard__transaction-amount {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .dashboard__transaction-amount--positive {
+            color: #22c55e;
+        }
+
+        .dashboard__transaction-amount--negative {
+            color: #ef4444;
+        }
+
+        /* Chart (Static SVG Placeholder) */
+        .dashboard__chart {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dashboard__chart-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .dashboard__chart-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .dashboard {
+                grid-template-columns: 250px 1fr;
+            }
+
+            .dashboard__sidebar {
+                height: fit-content;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .dashboard {
+                padding: 15px;
+            }
+
+            .dashboard__balance-amount {
+                font-size: 2rem;
+            }
+
+            .dashboard__chart-image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dashboard -->
+    <div class="dashboard" role="main" aria-label="Finance Tracker Dashboard">
+        <!-- Sidebar -->
+        <aside class="dashboard__sidebar" aria-label="Navigation">
+            <h1 class="dashboard__logo">MoneyWise</h1>
+            <nav class="dashboard__nav">
+                <a href="#" class="dashboard__nav-link">Dashboard</a>
+                <a href="#" class="dashboard__nav-link">Transactions</a>
+                <a href="#" class="dashboard__nav-link">Budgets</a>
+                <a href="#" class="dashboard__nav-link">Reports</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard__main">
+            <!-- Balance Card -->
+            <div class="dashboard__balance" role="region" aria-label="Account Balance">
+                <h2 class="dashboard__balance-title">Total Balance</h2>
+                <p class="dashboard__balance-amount">$12,345.67</p>
+            </div>
+
+            <!-- Transactions -->
+            <section class="dashboard__transactions" role="region" aria-label="Recent Transactions">
+                <h2 class="dashboard__transactions-title">Recent Transactions</h2>
+                <div class="dashboard__transaction-list">
+                    <div class="dashboard__transaction">
+                        <span class="dashboard__transaction-name">Grocery Store</span>
+                        <span class="dashboard__transaction-amount dashboard__transaction-amount--negative">-$85.20</span>
+                    </div>
+                    <div class="dashboard__transaction">
+                        <span class="dashboard__transaction-name">Salary</span>
+                        <span class="dashboard__transaction-amount dashboard__transaction-amount--positive">+$3,000.00</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chart -->
+            <section class="dashboard__chart" role="region" aria-label="Spending Chart">
+                <h2 class="dashboard__chart-title">Spending Overview</h2>
+                <img src="https://via.placeholder.com/600x200" alt="Spending Chart" class="dashboard__chart-image">
+            </section>
+        </main>
+    </div>
+</body>
+</html>

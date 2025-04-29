@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language Landing Page UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #6b46c1;
+            --secondary: #ffffff;
+            --text: #1a202c;
+            --accent: #f7fafc;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--accent);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header__language {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header__language-select {
+            padding: 0.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background: var(--secondary);
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .header__language-select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .hero__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .hero__subtitle {
+            font-size: 1.2rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero__button:hover {
+            background: #553c9a;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Features Section
+        -------------------------------------- */
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card__icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card__text {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero__title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">GlobalApp</a>
+            <div class="header__language">
+                <select class="header__language-select" aria-label="Select Language">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero__title">Connect the World</h1>
+        <p class="hero__subtitle">Discover our app in your language and join a global community.</p>
+        <a href="#" class="hero__button">Get Started</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <article class="feature-card">
+            <div class="feature-card__icon">🌐</div>
+            <h3 class="feature-card__title">Multi-Language</h3>
+            <p class="feature-card__text">Access content in over 50 languages seamlessly.</p>
+        </article>
+        <article class="feature-card">
+            <div class="feature-card__icon">⚡</div>
+            <h3 class="feature-card__title">Fast Performance</h3>
+            <p class="feature-card__text">Enjoy a smooth experience with optimized speed.</p>
+        </article>
+        <article class="feature-card">
+            <div class="feature-card__icon">🔒</div>
+            <h3 class="feature-card__title">Secure</h3>
+            <p class="feature-card__text">Your data is protected with top-tier security.</p>
+        </article>
+    </section>
+</body>
+</html>

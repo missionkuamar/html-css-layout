@@ -1,0 +1,124 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background: #f4f4f4;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Split Landing Page */
+.split-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.split {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    transition: flex 0.7s ease;
+    position: relative;
+}
+
+.split-left {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080');
+}
+
+.split-right {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080');
+}
+
+.split.active {
+    flex: 3;
+}
+
+.split-content {
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+}
+
+.split-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.split-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .split {
+        flex: 1 0 50%;
+        min-height: 50vh;
+        transition: none; /* Disable hover expansion on mobile */
+    }
+
+    .split.active {
+        flex: 1 0 50%;
+    }
+
+    .split-content h2 {
+        font-size: 2rem;
+    }
+
+    .split-content p {
+        font-size: 1rem;
+    }
+}

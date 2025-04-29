@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Only Tooltip System</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* --------------------------------------
+           Tooltip Container
+        -------------------------------------- */
+        .tooltip-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip__trigger {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .tooltip__trigger:hover {
+            transform: scale(1.05);
+        }
+
+        .tooltip__content {
+            position: absolute;
+            background: #1f2937;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .tooltip:hover .tooltip__content {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Tooltip Positions */
+        .tooltip--top .tooltip__content {
+            bottom: 100%;
+            left: 50%;
+            transform: translate(-50%, -10px);
+        }
+
+        .tooltip--top:hover .tooltip__content {
+            transform: translate(-50%, 0);
+        }
+
+        .tooltip--bottom .tooltip__content {
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, 10px);
+        }
+
+        .tooltip--bottom:hover .tooltip__content {
+            transform: translate(-50%, 0);
+        }
+
+        .tooltip--left .tooltip__content {
+            right: 100%;
+            top: 50%;
+            transform: translate(-10px, -50%);
+        }
+
+        .tooltip--left:hover .tooltip__content {
+            transform: translate(0, -50%);
+        }
+
+        .tooltip--right .tooltip__content {
+            left: 100%;
+            top: 50%;
+            transform: translate(10px, -50%);
+        }
+
+        .tooltip--right:hover .tooltip__content {
+            transform: translate(0, -50%);
+        }
+
+        /* Tooltip Arrow */
+        .tooltip__content::before {
+            content: '';
+            position: absolute;
+            border: 6px solid transparent;
+        }
+
+        .tooltip--top .tooltip__content::before {
+            border-top-color: #1f2937;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tooltip--bottom .tooltip__content::before {
+            border-bottom-color: #1f2937;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tooltip--left .tooltip__content::before {
+            border-left-color: #1f2937;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .tooltip--right .tooltip__content::before {
+            border-right-color: #1f2937;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (max-width: 600px) {
+            .tooltip-container {
+                gap: 20px;
+            }
+
+            .tooltip__trigger {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            .tooltip__content {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Tooltip Container -->
+    <div class="tooltip-container" role="region" aria-label="Tooltip System">
+        <div class="tooltip tooltip--top">
+            <span class="tooltip__trigger">Top Tooltip</span>
+            <span class="tooltip__content">This is a top tooltip!</span>
+        </div>
+        <div class="tooltip tooltip--bottom">
+            <span class="tooltip__trigger">Bottom Tooltip</span>
+            <span class="tooltip__content">This is a bottom tooltip!</span>
+        </div>
+        <div class="tooltip tooltip--left">
+            <span class="tooltip__trigger">Left Tooltip</span>
+            <span class="tooltip__content">This is a left tooltip!</span>
+        </div>
+        <div class="tooltip tooltip--right">
+            <span class="tooltip__trigger">Right Tooltip</span>
+            <span class="tooltip__content">This is a right tooltip!</span>
+        </div>
+    </div>
+</body>
+</html>

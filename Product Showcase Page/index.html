@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Headphones | SonicWave Pro</title>
+  <style>
+    /* Modern Reset & Base Styles */
+    :root {
+      --primary: #3a86ff;
+      --dark: #2b2d42;
+      --light: #f8f9fa;
+      --gray: #adb5bd;
+      --radius: 12px;
+      --shadow: 0 10px 20px rgba(0,0,0,0.08);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--light);
+    }
+
+    /* Product Showcase Container */
+    .product-showcase {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Product Grid Layout */
+    .product-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    @media (min-width: 992px) {
+      .product-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Product Gallery */
+    .product-gallery {
+      position: relative;
+      padding: 2rem;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 400px;
+      object-fit: contain;
+      transition: var(--transition);
+      cursor: zoom-in;
+    }
+
+    .thumbnail-container {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .thumbnail {
+      width: 60px;
+      height: 60px;
+      border: 1px solid var(--gray);
+      border-radius: 4px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: var(--transition);
+      opacity: 0.7;
+    }
+
+    .thumbnail:hover, .thumbnail.active {
+      opacity: 1;
+      border-color: var(--primary);
+    }
+
+    .badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Product Details */
+    .product-details {
+      padding: 2rem;
+    }
+
+    .product-title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-subtitle {
+      color: var(--gray);
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stars {
+      color: #ffb703;
+    }
+
+    .review-count {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 1.5rem 0;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: var(--gray);
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+    }
+
+    .discount {
+      color: #e63946;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    /* Product Features */
+    .features {
+      margin: 1.5rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--primary);
+    }
+
+    /* Color Selector */
+    .color-options {
+      margin: 1.5rem 0;
+    }
+
+    .color-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .colors {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .color {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition);
+    }
+
+    .color.selected {
+      border-color: var(--dark);
+    }
+
+    /* CTA Buttons */
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      flex: 1;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #2667cc;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: #f0f7ff;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .main-image {
+        height: 300px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .product-details > * {
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .product-details > *:nth-child(2) { animation-delay: 0.1s; }
+    .product-details > *:nth-child(3) { animation-delay: 0.2s; }
+    .product-details > *:nth-child(4) { animation-delay: 0.3s; }
+    .product-details > *:nth-child(5) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+  <div class="product-showcase">
+    <div class="product-container">
+      <!-- Product Gallery -->
+      <div class="product-gallery">
+        <span class="badge">Best Seller</span>
+        <img 
+          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" 
+          alt="SonicWave Pro Headphones" 
+          class="main-image"
+          id="mainImage"
+        >
+        <div class="thumbnail-container">
+          <img 
+            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" 
+            alt="Headphones Black" 
+            class="thumbnail active"
+            data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+          >
+          <img 
+            src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df" 
+            alt="Headphones Side View" 
+            class="thumbnail"
+            data-image="https://images.unsplash.com/photo-1590658268037-6bf12165a8df"
+          >
+          <img 
+            src="https://images.unsplash.com/photo-1593784991095-a205069470b6" 
+            alt="Headphones Case" 
+            class="thumbnail"
+            data-image="https://images.unsplash.com/photo-1593784991095-a205069470b6"
+          >
+        </div>
+      </div>
+
+      <!-- Product Details -->
+      <div class="product-details">
+        <h1 class="product-title">SonicWave Pro</h1>
+        <p class="product-subtitle">Premium Noise-Canceling Wireless Headphones</p>
+        
+        <div class="rating">
+          <div class="stars">★★★★★</div>
+          <span class="review-count">(428 reviews)</span>
+        </div>
+
+        <div class="price">
+          $299.99 <span class="original-price">$349.99</span>
+          <span class="discount">15% OFF</span>
+        </div>
+
+        <div class="features">
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+            </svg>
+            <span>Active Noise Cancellation</span>
+          </div>
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+            </svg>
+            <span>30-hour battery life</span>
+          </div>
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+            </svg>
+            <span>Hi-Res Audio Certified</span>
+          </div>
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+            </svg>
+            <span>Multi-point Bluetooth</span>
+          </div>
+        </div>
+
+        <div class="color-options">
+          <div class="color-title">Color:</div>
+          <div class="colors">
+            <div class="color selected" style="background: #2b2d42;" data-color="Midnight Black"></div>
+            <div class="color" style="background: #e63946;" data-color="Crimson Red"></div>
+            <div class="color" style="background: #a8dadc;" data-color="Arctic Blue"></div>
+          </div>
+        </div>
+
+        <div class="cta-buttons">
+          <button class="btn btn-primary">Add to Cart</button>
+          <button class="btn btn-secondary">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Product Gallery Interaction
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const mainImage = document.getElementById('mainImage');
+    
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        // Update main image
+        mainImage.src = thumb.dataset.image;
+        
+        // Update active thumbnail
+        thumbnails.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+        
+        // Add zoom effect
+        mainImage.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+          mainImage.style.transform = 'scale(1)';
+        }, 300);
+      });
+    });
+
+    // Color Selection
+    const colors = document.querySelectorAll('.color');
+    colors.forEach(color => {
+      color.addEventListener('click', () => {
+        colors.forEach(c => c.classList.remove('selected'));
+        color.classList.add('selected');
+      });
+    });
+
+    // Add to Cart Animation
+    const addToCartBtn = document.querySelector('.btn-primary');
+    addToCartBtn.addEventListener('click', () => {
+      addToCartBtn.textContent = 'Added!';
+      addToCartBtn.style.backgroundColor = '#4cc9f0';
+      
+      setTimeout(() => {
+        addToCartBtn.textContent = 'Add to Cart';
+        addToCartBtn.style.backgroundColor = '';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

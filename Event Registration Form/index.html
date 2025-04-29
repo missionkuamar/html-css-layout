@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #3182ce;
+            --secondary: #ffffff;
+            --error: #e53e3e;
+            --text: #2d3748;
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #edf2f7;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* --------------------------------------
+           Form Container
+        -------------------------------------- */
+        .form {
+            background: var(--secondary);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .form__title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form__group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form__label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form__input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form__input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+            outline: none;
+        }
+
+        .form__input:invalid[required] {
+            border-color: var(--error);
+        }
+
+        .form__error {
+            font-size: 0.8rem;
+            color: var(--error);
+            display: none;
+            margin-top: 0.5rem;
+        }
+
+        .form__input:invalid[required] + .form__error {
+            display: block;
+        }
+
+        .form__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 0.8rem;
+            border: none;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .form__button:hover {
+            background: #2b6cb0;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (max-width: 600px) {
+            .form {
+                padding: 1.5rem;
+            }
+
+            .form__title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Registration Form -->
+    <form class="form">
+        <h1 class="form__title">Event Registration</h1>
+        <div class="form__group">
+            <label for="name" class="form__label">Full Name</label>
+            <input type="text" id="name" class="form__input" required>
+            <span class="form__error">Please enter your name</span>
+        </div>
+        <div class="form__group">
+            <label for="email" class="form__label">Email Address</label>
+            <input type="email" id="email" class="form__input" required>
+            <span class="form__error">Please enter a valid email</span>
+        </div>
+        <div class="form__group">
+            <label for="phone" class="form__label">Phone Number</label>
+            <input type="tel" id="phone" class="form__input" required>
+            <span class="form__error">Please enter a valid phone number</span>
+        </div>
+        <button type="submit" class="form__button">Register Now</button>
+    </form>
+</body>
+</html>

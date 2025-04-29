@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Hosting Website Layout</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #1e3a8a;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header__link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .header__link:hover {
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInHero 1s ease-out;
+        }
+
+        .hero__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero__title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero__subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #e5e7eb;
+        }
+
+        .hero__button {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero__button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1400x600') center/cover no-repeat;
+            opacity: 0.2;
+            transform: translateY(50px);
+            animation: parallax 10s infinite linear;
+        }
+
+        /* --------------------------------------
+           Pricing Section
+        -------------------------------------- */
+        .pricing {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .pricing__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .pricing__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .plan {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan__title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .plan__price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 15px;
+        }
+
+        .plan__features {
+            list-style: none;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+        .plan__features li {
+            margin-bottom: 10px;
+        }
+
+        .plan__button {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .plan__button:hover {
+            background: #1e40af;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           Footer
+        -------------------------------------- */
+        .footer {
+            background: #1e3a8a;
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+
+        .footer__container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer__section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer__link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover {
+            color: #3b82f6;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeInHero {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes parallax {
+            0% { transform: translateY(50px); }
+            100% { transform: translateY(-50px); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .pricing__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero__title {
+                font-size: 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .pricing__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero__title {
+                font-size: 3rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="#" class="header__logo">HostZap</a>
+            <nav class="header__nav" aria-label="Main Navigation">
+                <a href="#" class="header__link">Home</a>
+                <a href="#" class="header__link">Hosting</a>
+                <a href="#" class="header__link">Domains</a>
+                <a href="#" class="header__link">Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" role="region" aria-label="Hero Section">
+        <div class="hero__bg"></div>
+        <div class="hero__container">
+            <h1 class="hero__title">Fast & Reliable Web Hosting</h1>
+            <p class="hero__subtitle">Launch your website with our high-performance hosting plans.</p>
+            <a href="#" class="hero__button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" role="region" aria-label="Pricing Plans">
+        <h2 class="pricing__title">Choose Your Plan</h2>
+        <div class="pricing__grid">
+            <div class="plan">
+                <h3 class="plan__title">Basic</h3>
+                <p class="plan__price">$3.99/mo</p>
+                <ul class="plan__features">
+                    <li>1 Website</li>
+                    <li>10 GB Storage</li>
+                    <li>Free SSL</li>
+                </ul>
+                <a href="#" class="plan__button">Select Plan</a>
+            </div>
+            <div class="plan">
+                <h3 class="plan__title">Pro</h3>
+                <p class="plan__price">$7.99/mo</p>
+                <ul class="plan__features">
+                    <li>Unlimited Websites</li>
+                    <li>50 GB Storage</li>
+                    <li>Free SSL & CDN</li>
+                </ul>
+                <a href="#" class="plan__button">Select Plan</a>
+            </div>
+            <div class="plan">
+                <h3 class="plan__title">Enterprise</h3>
+                <p class="plan__price">$14.99/mo</p>
+                <ul class="plan__features">
+                    <li>Unlimited Websites</li>
+                    <li>100 GB Storage</li>
+                    <li>Free SSL, CDN & Support</li>
+                </ul>
+                <a href="#" class="plan__button">Select Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__section">
+                <h3 class="footer__title">HostZap</h3>
+                <a href="#" class="footer__link">About Us</a>
+                <a href="#" class="footer__link">Careers</a>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Support</h3>
+                <a href="#" class="footer__link">Help Center</a>
+                <a href="#" class="footer__link">Contact Us</a>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Follow Us</h3>
+                <a href="#" class="footer__link">Twitter</a>
+                <a href="#" class="footer__link">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

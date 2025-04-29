@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Doctor Consultation Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #3182ce;
+            --secondary: #ffffff;
+            --text: #1a202c;
+            --accent: #edf2f7;
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            background: var(--accent);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .header__link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header__link:hover {
+            color: var(--primary);
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero__title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero__subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #4a5568;
+        }
+
+        /* --------------------------------------
+           Consultation Form
+        -------------------------------------- */
+        .consultation {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            background: var(--secondary);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        .consultation__form {
+            padding: 2rem;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .consultation__input {
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .consultation__input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .consultation__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .consultation__button:hover {
+            background: #2b6cb0;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (max-width: 600px) {
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .consultation__form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">HealthConnect</a>
+            <nav class="header__nav">
+                <a href="#" class="header__link">Services</a>
+                <a href="#" class="header__link">Doctors</a>
+                <a href="#" class="header__link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero__title">Consult a Doctor Online</h1>
+        <p class="hero__subtitle">Book your virtual consultation with top medical professionals.</p>
+    </section>
+
+    <!-- Consultation Form -->
+    <section class="consultation">
+        <form class="consultation__form">
+            <input type="text" class="consultation__input" placeholder="Full Name" required>
+            <input type="email" class="consultation__input" placeholder="Email Address" required>
+            <select class="consultation__input" required>
+                <option value="" disabled selected>Select Specialty</option>
+                <option value="general">General Medicine</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="dermatology">Dermatology</option>
+            </select>
+            <input type="datetime-local" class="consultation__input" required>
+            <button type="submit" class="consultation__button">Book Now</button>
+        </form>
+    </section>
+</body>
+</html>

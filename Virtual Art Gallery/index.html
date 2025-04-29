@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Art Gallery</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+
+        body {
+            background: #f3f4f6;
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #ffffff;
+            padding: 15px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4b5563;
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header__link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .header__link:hover {
+            color: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Gallery Section
+        -------------------------------------- */
+        .gallery {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .gallery__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .gallery__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .artwork {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .artwork:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .artwork__image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .artwork__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .artwork:hover .artwork__overlay {
+            opacity: 1;
+        }
+
+        .artwork__title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .artwork__artist {
+            font-size: 1.2rem;
+            color: #d1d5db;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .gallery__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery__title {
+                font-size: 2rem;
+            }
+
+            .artwork__image {
+                height: 200px;
+            }
+
+            .artwork__title {
+                font-size: 1.5rem;
+            }
+
+            .artwork__artist {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="#" class="header__logo">ArtVista</a>
+            <nav class="header__nav" aria-label="Main Navigation">
+                <a href="#" class="header__link">Home</a>
+                <a href="#" class="header__link">Gallery</a>
+                <a href="#" class="header__link">Artists</a>
+                <a href="#" class="header__link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery" role="region" aria-label="Art Gallery">
+        <h2 class="gallery__title">Explore Our Collection</h2>
+        <div class="gallery__grid">
+            <article class="artwork">
+                <img src="https://via.placeholder.com/400x300" alt="Artwork 1" class="artwork__image">
+                <div class="artwork__overlay">
+                    <h3 class="artwork__title">Serenity</h3>
+                    <p class="artwork__artist">by Anna Lee</p>
+                </div>
+            </article>
+            <article class="artwork">
+                <img src="https://via.placeholder.com/400x300" alt="Artwork 2" class="artwork__image">
+                <div class="artwork__overlay">
+                    <h3 class="artwork__title">Horizon</h3>
+                    <p class="artwork__artist">by John Doe</p>
+                </div>
+            </article>
+            <article class="artwork">
+                <img src="https://via.placeholder.com/400x300" alt="Artwork 3" class="artwork__image">
+                <div class="artwork__overlay">
+                    <h3 class="artwork__title">Ethereal</h3>
+                    <p class="artwork__artist">by Sarah Kim</p>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

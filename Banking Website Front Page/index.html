@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Website Front Page</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #ffffff;
+            padding: 15px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header__link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .header__link:hover {
+            color: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            animation: fadeInHero 1s ease-out;
+        }
+
+        .hero__container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero__title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero__subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #d1d5db;
+        }
+
+        .hero__button {
+            background: #ffffff;
+            color: #1e40af;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero__button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --------------------------------------
+           Features Section
+        -------------------------------------- */
+        .features {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .features__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .features__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .feature {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature__icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .feature__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature__text {
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeInHero {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .features__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero__title {
+                font-size: 4rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="#" class="header__logo">BankEasy</a>
+            <nav class="header__nav" aria-label="Main Navigation">
+                <a href="#" class="header__link">Home</a>
+                <a href="#" class="header__link">Accounts</a>
+                <a href="#" class="header__link">Loans</a>
+                <a href="#" class="header__link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" role="region" aria-label="Hero Section">
+        <div class="hero__container">
+            <h1 class="hero__title">Banking Made Simple</h1>
+            <p class="hero__subtitle">Manage your finances with ease and security.</p>
+            <a href="#" class="hero__button">Open an Account</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" role="region" aria-label="Features">
+        <h2 class="features__title">Why Choose BankEasy?</h2>
+        <div class="features__grid">
+            <div class="feature">
+                <img src="https://via.placeholder.com/60" alt="Online Banking Icon" class="feature__icon">
+                <h3 class="feature__title">Online Banking</h3>
+                <p class="feature__text">Access your account anytime, anywhere with our secure platform.</p>
+            </div>
+            <div class="feature">
+                <img src="https://via.placeholder.com/60" alt="Low Fees Icon" class="feature__icon">
+                <h3 class="feature__title">Low Fees</h3>
+                <p class="feature__text">Enjoy transparent pricing with minimal fees.</p>
+            </div>
+            <div class="feature">
+                <img src="https://via.placeholder.com/60" alt="Support Icon" class="feature__icon">
+                <h3 class="feature__title">24/7 Support</h3>
+                <p class="feature__text">Our team is here to help you around the clock.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

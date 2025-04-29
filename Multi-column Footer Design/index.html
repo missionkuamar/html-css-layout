@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-column Footer Design</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        /* --------------------------------------
+           Footer
+        -------------------------------------- */
+        .footer {
+            background: #1f2937;
+            color: #ffffff;
+            padding: 60px 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .footer__container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer__section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer__text {
+            font-size: 1rem;
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        .footer__link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .footer__link:hover {
+            color: #3b82f6;
+            transform: translateX(5px);
+        }
+
+        .footer__social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer__social-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer__social-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .footer__bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .footer__container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer__container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer__title {
+                font-size: 1.2rem;
+            }
+
+            .footer__text, .footer__link {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__section">
+                <h2 class="footer__title">About Us</h2>
+                <p class="footer__text">We are a company dedicated to delivering innovative solutions for your needs.</p>
+            </div>
+            <div class="footer__section">
+                <h2 class="footer__title">Quick Links</h2>
+                <a href="#" class="footer__link">Home</a>
+                <a href="#" class="footer__link">Services</a>
+                <a href="#" class="footer__link">Pricing</a>
+                <a href="#" class="footer__link">Contact</a>
+            </div>
+            <div class="footer__section">
+                <h2 class="footer__title">Support</h2>
+                <a href="#" class="footer__link">Help Center</a>
+                <a href="#" class="footer__link">FAQs</a>
+                <a href="#" class="footer__link">Terms of Service</a>
+                <a href="#" class="footer__link">Privacy Policy</a>
+            </div>
+            <div class="footer__section">
+                <h2 class="footer__title">Follow Us</h2>
+                <div class="footer__social">
+                    <a href="#"><img src="https://via.placeholder.com/24" alt="Twitter" class="footer__social-icon"></a>
+                    <a href="#"><img src="https://via.placeholder.com/24" alt="LinkedIn" class="footer__social-icon"></a>
+                    <a href="#"><img src="https://via.placeholder.com/24" alt="Facebook" class="footer__social-icon"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2025 YourCompany. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Channel Landing Page</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #ffffff;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ff0000;
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header__link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header__link:hover {
+            color: #ff0000;
+        }
+
+        /* --------------------------------------
+           Channel Info
+        -------------------------------------- */
+        .channel {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .channel__banner {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .channel__info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .channel__avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .channel__details {
+            flex: 1;
+        }
+
+        .channel__name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .channel__subscribers {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .channel__button {
+            background: #ff0000;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .channel__button:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           Videos Section
+        -------------------------------------- */
+        .videos {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .videos__title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .videos__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .video-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-card__thumbnail {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .video-card__content {
+            padding: 15px;
+        }
+
+        .video-card__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .video-card__meta {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        /* --------------------------------------
+           Footer
+        -------------------------------------- */
+        .footer {
+            background: #1f2937;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer__text {
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .videos__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .channel__info {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .videos__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .channel__banner {
+                height: 150px;
+            }
+
+            .channel__info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .channel__avatar {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">YouTube</a>
+            <nav class="header__nav">
+                <a href="#" class="header__link">Home</a>
+                <a href="#" class="header__link">Videos</a>
+                <a href="#" class="header__link">Playlists</a>
+                <a href="#" class="header__link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Channel Info -->
+    <section class="channel">
+        <img src="https://via.placeholder.com/1200x200" alt="Channel Banner" class="channel__banner">
+        <div class="channel__info">
+            <img src="https://via.placeholder.com/80" alt="Channel Avatar" class="channel__avatar">
+            <div class="channel__details">
+                <h1 class="channel__name">TechBit</h1>
+                <p class="channel__subscribers">1.2M Subscribers</p>
+            </div>
+            <a href="#" class="channel__button">Subscribe</a>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos">
+        <h2 class="videos__title">Latest Videos</h2>
+        <div class="videos__grid">
+            <article class="video-card">
+                <img src="https://via.placeholder.com/300x180" alt="Video 1" class="video-card__thumbnail">
+                <div class="video-card__content">
+                    <h3 class="video-card__title">AI in 2025</h3>
+                    <p class="video-card__meta">100K views • 2 days ago</p>
+                </div>
+            </article>
+            <article class="video-card">
+                <img src="https://via.placeholder.com/300x180" alt="Video 2" class="video-card__thumbnail">
+                <div class="video-card__content">
+                    <h3 class="video-card__title">Blockchain Basics</h3>
+                    <p class="video-card__meta">80K views • 5 days ago</p>
+                </div>
+            </article>
+            <article class="video-card">
+                <img src="https://via.placeholder.com/300x180" alt="Video 3" class="video-card__thumbnail">
+                <div class="video-card__content">
+                    <h3 class="video-card__title">VR Future</h3>
+                    <p class="video-card__meta">50K views • 1 week ago</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer__text">© 2025 TechBit. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Portal Layout (CNN Style)</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            min-height: 100vh;
+            color: #0a0a0a;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #cc0000;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header__link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .header__link:hover {
+            opacity: 0.8;
+        }
+
+        /* --------------------------------------
+           Featured Article
+        -------------------------------------- */
+        .featured {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 20px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .featured__article {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured__image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .featured__content {
+            padding: 20px;
+        }
+
+        .featured__title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .featured__excerpt {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+
+        .featured__button {
+            background: #cc0000;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .featured__button:hover {
+            background: #b30000;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           News Grid
+        -------------------------------------- */
+        .news {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .news__title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .news__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .news__article {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .news__article:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .news__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news__content {
+            padding: 15px;
+        }
+
+        .news__article-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .news__article-excerpt {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* --------------------------------------
+           Footer
+        -------------------------------------- */
+        .footer {
+            background: #0a0a0a;
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+
+        .footer__container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer__section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer__link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover {
+            color: #cc0000;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .news__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured__article {
+                display: flex;
+                align-items: center;
+            }
+
+            .featured__image, .featured__content {
+                flex: 1;
+            }
+
+            .featured__image {
+                height: 100%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .news__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .featured__title {
+                font-size: 1.5rem;
+            }
+
+            .featured__image {
+                height: 250px;
+            }
+
+            .news__article-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">CNN</a>
+            <nav class="header__nav">
+                <a href="#" class="header__link">World</a>
+                <a href="#" class="header__link">Politics</a>
+                <a href="#" class="header__link">Business</a>
+                <a href="#" class="header__link">Health</a>
+                <a href="#" class="header__link">Entertainment</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Featured Article -->
+    <section class="featured">
+        <article class="featured__article">
+            <img src="https://via.placeholder.com/700x400" alt="Featured Article" class="featured__image">
+            <div class="featured__content">
+                <h2 class="featured__title">Global Summit Addresses Climate Crisis</h2>
+                <p class="featured__excerpt">World leaders gather to discuss urgent action on climate change and sustainable development.</p>
+                <a href="#" class="featured__button">Read More</a>
+            </div>
+        </article>
+    </section>
+
+    <!-- News Grid -->
+    <section class="news">
+        <h2 class="news__title">Latest News</h2>
+        <div class="news__grid">
+            <article class="news__article">
+                <img src="https://via.placeholder.com/300x200" alt="Article 1" class="news__image">
+                <div class="news__content">
+                    <h3 class="news__article-title">Tech Stocks Surge</h3>
+                    <p class="news__article-excerpt">Major tech companies report record earnings, boosting market confidence.</p>
+                </div>
+            </article>
+            <article class="news__article">
+                <img src="https://via.placeholder.com/300x200" alt="Article 2" class="news__image">
+                <div class="news__content">
+                    <h3 class="news__article-title">New Health Guidelines Released</h3>
+                    <p class="news__article-excerpt">Health officials update recommendations for public safety.</p>
+                </div>
+            </article>
+            <article class="news__article">
+                <img src="https://via.placeholder.com/300x200" alt="Article 3" class="news__image">
+                <div class="news__content">
+                    <h3 class="news__article-title">Space Mission Success</h3>
+                    <p class="news__article-excerpt">NASA's latest mission achieves key milestones in space exploration.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__section">
+                <h3 class="footer__title">About CNN</h3>
+                <a href="#" class="footer__link">Our Mission</a>
+                <a href="#" class="footer__link">Contact Us</a>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Follow Us</h3>
+                <a href="#" class="footer__link">Twitter</a>
+                <a href="#" class="footer__link">Facebook</a>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Legal</h3>
+                <a href="#" class="footer__link">Terms of Use</a>
+                <a href="#" class="footer__link">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

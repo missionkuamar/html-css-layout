@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming Hero</title>
+  <style>
+    /* Mobile-First CSS */
+    :root {
+      --netflix-red: #e50914;
+      --dark-bg: #141414;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: var(--dark-bg);
+      color: white;
+    }
+
+    /* Hero Component */
+    .hero {
+      position: relative;
+      height: 70vh;
+      min-height: 400px;
+      overflow: hidden;
+    }
+
+    .hero-backdrop {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      animation: fadeIn 1s ease;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.6rem;
+      border-radius: 4px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--netflix-red);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: rgba(109, 109, 110, 0.7);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Adjustments */
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 4rem;
+        max-width: 60%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <img 
+      class="hero-backdrop"
+      src="https://via.placeholder.com/1920x1080" 
+      alt="Show backdrop"
+    >
+    <div class="hero-content">
+      <h1 class="hero-title">Stranger Things</h1>
+      <p>When a young boy vanishes, a small town uncovers a mystery...</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary">▶ Play</button>
+        <button class="btn btn-secondary">ℹ More Info</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Simple interaction
+    const hero = document.querySelector('.hero');
+    
+    hero.addEventListener('mousemove', (e) => {
+      if (window.innerWidth > 768) {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        hero.style.backgroundPosition = `${x * 50}% ${y * 50}%`;
+      }
+    });
+  </script>
+</body>
+</html>

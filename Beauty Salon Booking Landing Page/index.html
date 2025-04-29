@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Salon Booking Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #d81b60;
+            --secondary: #ffffff;
+            --text: #1a202c;
+            --accent: #f7fafc;
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: var(--accent);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .header__link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header__link:hover {
+            color: var(--primary);
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: linear-gradient(135deg, rgba(216, 27, 96, 0.8), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1200x600') center/cover;
+            color: var(--secondary);
+            text-align: center;
+            padding: 4rem 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero__subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .hero__button:hover {
+            background: #b0004e;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Booking Form
+        -------------------------------------- */
+        .booking {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            background: var(--secondary);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        .booking__form {
+            padding: 2rem;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .booking__input {
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .booking__input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .booking__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .booking__button:hover {
+            background: #b0004e;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (max-width: 600px) {
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1rem;
+            }
+
+            .booking__form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">Glamour Salon</a>
+            <nav class="header__nav">
+                <a href="#" class="header__link">Services</a>
+                <a href="#" class="header__link">About</a>
+                <a href="#" class="header__link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero__title">Unleash Your Beauty</h1>
+        <p class="hero__subtitle">Book your appointment today and experience luxury pampering.</p>
+        <a href="#booking" class="hero__button">Book Now</a>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="booking" class="booking">
+        <form class="booking__form">
+            <input type="text" class="booking__input" placeholder="Full Name" required>
+            <input type="email" class="booking__input" placeholder="Email Address" required>
+            <select class="booking__input" required>
+                <option value="" disabled selected>Select Service</option>
+                <option value="haircut">Haircut</option>
+                <option value="manicure">Manicure</option>
+                <option value="facial">Facial</option>
+            </select>
+            <input type="datetime-local" class="booking__input" required>
+            <button type="submit" class="booking__button">Confirm Booking</button>
+        </form>
+    </section>
+</body>
+</html>

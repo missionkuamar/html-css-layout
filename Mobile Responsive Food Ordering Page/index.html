@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsive Food Ordering Page</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #fefce8;
+            min-height: 100vh;
+            color: #1f2937;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #ea580c;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .header__cart {
+            font-size: 1.5rem;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* --------------------------------------
+           Menu Section
+        -------------------------------------- */
+        .menu {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .menu__title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .menu__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .menu__item {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu__item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu__content {
+            padding: 15px;
+        }
+
+        .menu__item-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .menu__item-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ea580c;
+            margin-bottom: 10px;
+        }
+
+        .menu__item-button {
+            background: #ea580c;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .menu__item-button:hover {
+            background: #c2410c;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           Cart Section
+        -------------------------------------- */
+        .cart {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .cart__title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cart__item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart__item-name {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .cart__item-price {
+            font-size: 1rem;
+            color: #ea580c;
+        }
+
+        .cart__form {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .cart__input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .cart__button {
+            background: #ea580c;
+            color: #ffffff;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .cart__button:hover {
+            background: #c2410c;
+            transform: scale(1.02);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .menu__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .menu__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu__title, .cart__title {
+                font-size: 1.5rem;
+            }
+
+            .menu__item-title {
+                font-size: 1.2rem;
+            }
+
+            .menu__image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="#" class="header__logo">Foodie</a>
+            <a href="#" class="header__cart" aria-label="View Cart">🛒</a>
+        </div>
+    </header>
+
+    <!-- Menu Section -->
+    <section class="menu" role="region" aria-label="Food Menu">
+        <h2 class="menu__title">Our Menu</h2>
+        <div class="menu__grid">
+            <article class="menu__item">
+                <img src="https://via.placeholder.com/400x200" alt="Pizza" class="menu__image">
+                <div class="menu__content">
+                    <h3 class="menu__item-title">Margherita Pizza</h3>
+                    <p class="menu__item-price">$12.99</p>
+                    <a href="#" class="menu__item-button">Add to Cart</a>
+                </div>
+            </article>
+            <article class="menu__item">
+                <img src="https://via.placeholder.com/400x200" alt="Burger" class="menu__image">
+                <div class="menu__content">
+                    <h3 class="menu__item-title">Cheeseburger</h3>
+                    <p class="menu__item-price">$8.99</p>
+                    <a href="#" class="menu__item-button">Add to Cart</a>
+                </div>
+            </article>
+            <article class="menu__item">
+                <img src="https://via.placeholder.com/400x200" alt="Pasta" class="menu__image">
+                <div class="menu__content">
+                    <h3 class="menu__item-title">Carbonara Pasta</h3>
+                    <p class="menu__item-price">$10.99</p>
+                    <a href="#" class="menu__item-button">Add to Cart</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart" role="region" aria-label="Cart and Checkout">
+        <h2 class="cart__title">Your Cart</h2>
+        <div class="cart__item">
+            <span class="cart__item-name">Margherita Pizza</span>
+            <span class="cart__item-price">$12.99</span>
+        </div>
+        <form class="cart__form">
+            <input type="text" class="cart__input" placeholder="Name" required>
+            <input type="text" class="cart__input" placeholder="Address" required>
+            <button type="submit" class="cart__button">Place Order</button>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Podcast Website Layout</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f9fafb;
+            min-height: 100vh;
+            color: #1f2937;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1f2937;
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header__link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header__link:hover {
+            color: #10b981;
+        }
+
+        /* --------------------------------------
+           Episodes Section
+        -------------------------------------- */
+        .episodes {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .episodes__title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .episodes__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        /* Reusable Episode Card Component */
+        .episode-card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .episode-card__title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .episode-card__description {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .episode-card__button {
+            background: #10b981;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .episode-card__button:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           Player Section (Static)
+        -------------------------------------- */
+        .player {
+            background: #1f2937;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            margin: 40px 0 0;
+        }
+
+        .player__title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .player__controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+
+        .player__button {
+            background: #10b981;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .player__button:hover {
+            background: #059669;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .episodes__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header__nav {
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .episodes__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .episodes__title {
+                font-size: 1.6rem;
+            }
+
+            .episode-card__title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">Tech Talk Podcast</a>
+            <nav class="header__nav">
+                <a href="#" class="header__link">Home</a>
+                <a href="#" class="header__link">Episodes</a>
+                <a href="#" class="header__link">About</a>
+                <a href="#" class="header__link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Episodes Section -->
+    <section class="episodes">
+        <h2 class="episodes__title">Latest Episodes</h2>
+        <div class="episodes__grid">
+            <!-- Episode Card Component -->
+            <article class="episode-card">
+                <h3 class="episode-card__title">Episode 1: AI Revolution</h3>
+                <p class="episode-card__description">Exploring how artificial intelligence is reshaping industries in 2025.</p>
+                <a href="#" class="episode-card__button">Listen Now</a>
+            </article>
+
+            <!-- Episode Card Component -->
+            <article class="episode-card">
+                <h3 class="episode-card__title">Episode 2: Blockchain Basics</h3>
+                <p class="episode-card__description">A beginner’s guide to understanding blockchain technology.</p>
+                <a href="#" class="episode-card__button">Listen Now</a>
+            </article>
+
+            <!-- Episode Card Component -->
+            <article class="episode-card">
+                <h3 class="episode-card__title">Episode 3: Future of Work</h3>
+                <p class="episode-card__description">How remote work and automation are changing the workplace.</p>
+                <a href="#" class="episode-card__button">Listen Now</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Player Section (Static) -->
+    <section class="player">
+        <h2 class="player__title">Now Playing</h2>
+        <div class="player__controls">
+            <a href="#" class="player__button">Play</a>
+            <a href="#" class="player__button">Pause</a>
+            <a href="#" class="player__button">Skip</a>
+        </div>
+    </section>
+</body>
+</html>

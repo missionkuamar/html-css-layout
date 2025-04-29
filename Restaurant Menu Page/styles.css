@@ -1,0 +1,289 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+a {
+    text-decoration: none;
+    color: #d4a373;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #b8860b;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #222;
+}
+
+.nav-links li a:hover {
+    color: #d4a373;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://via.placeholder.com/1200x600') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #d4a373;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #b8860b;
+}
+
+/* Menu Section */
+.menu {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.menu h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.menu-category {
+    margin-bottom: 40px;
+}
+
+.menu-category h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    text-align: left;
+    padding: 15px;
+}
+
+.menu-item h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.menu-item p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.menu-item .price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #d4a373;
+}
+
+/* Reservation Section */
+.reservation {
+    padding: 60px 0;
+    background: #f8f1e9;
+    text-align: center;
+}
+
+.reservation h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.reservation p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.reservation-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.reservation-form input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.reservation-form input[type="date"],
+.reservation-form input[type="time"] {
+    width: 100%;
+}
+
+.reservation-form button {
+    grid-column: span 2;
+    padding: 12px;
+    background: #d4a373;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.reservation-form button:hover {
+    background: #b8860b;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #fff;
+}
+
+.social-links a:hover {
+    color: #d4a373;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu-items {
+        grid-template-columns: 1fr;
+    }
+
+    .reservation-form {
+        grid-template-columns: 1fr;
+    }
+
+    .reservation-form button {
+        grid-column: span 1;
+    }
+}

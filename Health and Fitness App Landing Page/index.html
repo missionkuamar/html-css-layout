@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and Fitness App Landing Page</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f9fafb;
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #ffffff;
+            padding: 15px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #22c55e;
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header__link {
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .header__link:hover {
+            color: #22c55e;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: linear-gradient(135deg, #22c55e, #4ade80);
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+            animation: fadeInHero 1s ease-out;
+        }
+
+        .hero__container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero__title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero__subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #e5e7eb;
+        }
+
+        .hero__button {
+            background: #ffffff;
+            color: #22c55e;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero__button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --------------------------------------
+           Features Section
+        -------------------------------------- */
+        .features {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .features__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .features__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .feature {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature__icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .feature__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature__text {
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeInHero {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .features__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero__title {
+                font-size: 4.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero__title {
+                font-size: 2.5rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="#" class="header__logo">FitPulse</a>
+            <nav class="header__nav" aria-label="Main Navigation">
+                <a href="#" class="header__link">Home</a>
+                <a href="#" class="header__link">Features</a>
+                <a href="#" class="header__link">Pricing</a>
+                <a href="#" class="header__link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" role="region" aria-label="Hero Section">
+        <div class="hero__container">
+            <h1 class="hero__title">Transform Your Fitness</h1>
+            <p class="hero__subtitle">Track workouts, meals, and progress with FitPulse.</p>
+            <a href="#" class="hero__button">Download Now</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" role="region" aria-label="Features">
+        <h2 class="features__title">App Features</h2>
+        <div class="features__grid">
+            <div class="feature">
+                <img src="https://via.placeholder.com/60" alt="Workout Icon" class="feature__icon">
+                <h3 class="feature__title">Workout Plans</h3>
+                <p class="feature__text">Personalized routines for all levels.</p>
+            </div>
+            <div class="feature">
+                <img src="https://via.placeholder.com/60" alt="Nutrition Icon" class="feature__icon">
+                <h3 class="feature__title">Nutrition Tracking</h3>
+                <p class="feature__text">Log meals and monitor your diet.</p>
+            </div>
+            <div class="feature">
+                <img src="https://via.placeholder.com/60" alt="Progress Icon" class="feature__icon">
+                <h3 class="feature__title">Progress Reports</h3>
+                <p class="feature__text">Visualize your fitness journey.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

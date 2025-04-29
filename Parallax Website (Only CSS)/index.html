@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Website (Only CSS)</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0f172a;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Section Base
+        -------------------------------------- */
+        .section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .section__title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section__text {
+            font-size: 1.5rem;
+            max-width: 600px;
+            color: #d1d5db;
+        }
+
+        /* --------------------------------------
+           Parallax Sections
+        -------------------------------------- */
+        .section--parallax {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .section--parallax-1 {
+            background-image: url('https://via.placeholder.com/1400x900?text=Parallax+1');
+        }
+
+        .section--parallax-2 {
+            background-image: url('https://via.placeholder.com/1400x900?text=Parallax+2');
+        }
+
+        .section--content {
+            background: #1e293b;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .section__button {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section__button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (max-width: 600px) {
+            .section__title {
+                font-size: 2.5rem;
+            }
+
+            .section__text {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Parallax Section 1 -->
+    <section class="section section--parallax section--parallax-1" role="region" aria-label="Parallax Section 1">
+        <h1 class="section__title">Welcome to Our World</h1>
+        <p class="section__text">Discover a journey filled with inspiration and beauty.</p>
+        <a href="#" class="section__button">Explore Now</a>
+    </section>
+
+    <!-- Content Section 1 -->
+    <section class="section section--content" role="region" aria-label="Content Section 1">
+        <h2 class="section__title">Our Story</h2>
+        <p class="section__text">We craft experiences that resonate with passion and creativity.</p>
+    </section>
+
+    <!-- Parallax Section 2 -->
+    <section class="section section--parallax section--parallax-2" role="region" aria-label="Parallax Section 2">
+        <h1 class="section__title">Join the Adventure</h1>
+        <p class="section__text">Let’s create something extraordinary together.</p>
+        <a href="#" class="section__button">Get Started</a>
+    </section>
+
+    <!-- Content Section 2 -->
+    <section class="section section--content" role="region" aria-label="Content Section 2">
+        <h2 class="section__title">Contact Us</h2>
+        <p class="section__text">Reach out to start your journey with us.</p>
+    </section>
+</body>
+</html>

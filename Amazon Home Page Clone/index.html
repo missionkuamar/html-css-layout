@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Home Page Clone</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f3f3f3;
+            color: #0f1111;
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #131921;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .header__search {
+            flex: 1;
+            display: flex;
+            gap: 0;
+        }
+
+        .header__search-input {
+            padding: 10px;
+            border: none;
+            font-size: 1rem;
+            width: 100%;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .header__search-button {
+            background: #febd69;
+            padding: 10px;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .header__search-button:hover {
+            background: #f3a847;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header__link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header__link:hover {
+            color: #febd69;
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: url('https://via.placeholder.com/1400x400') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeInHero 1s ease-in-out;
+        }
+
+        .hero__text {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* --------------------------------------
+           Products Section
+        -------------------------------------- */
+        .products {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .products__title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .products__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card__content {
+            padding: 15px;
+        }
+
+        .product-card__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .product-card__price {
+            font-size: 1.1rem;
+            color: #b12704;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .product-card__button {
+            background: #ffd814;
+            color: #0f1111;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .product-card__button:hover {
+            background: #f7ca00;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           Footer
+        -------------------------------------- */
+        .footer {
+            background: #232f3e;
+            color: #ffffff;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer__container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer__section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer__link {
+            color: #dddddd;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer__link:hover {
+            color: #febd69;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeInHero {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .products__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header__container {
+                flex-wrap: nowrap;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products__grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header__search {
+                flex-direction: column;
+            }
+
+            .header__search-input {
+                border-radius: 4px;
+            }
+
+            .header__search-button {
+                border-radius: 4px;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .hero__text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">Amazon</a>
+            <div class="header__search">
+                <input type="text" class="header__search-input" placeholder="Search Amazon">
+                <button class="header__search-button">🔍</button>
+            </div>
+            <nav class="header__nav">
+                <a href="#" class="header__link">Account</a>
+                <a href="#" class="header__link">Orders</a>
+                <a href="#" class="header__link">Cart</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero__text">Shop the Best Deals Today</h1>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <h2 class="products__title">Featured Products</h2>
+        <div class="products__grid">
+            <article class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 1" class="product-card__image">
+                <div class="product-card__content">
+                    <h3 class="product-card__title">Wireless Earbuds</h3>
+                    <p class="product-card__price">$59.99</p>
+                    <a href="#" class="product-card__button">Add to Cart</a>
+                </div>
+            </article>
+            <article class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 2" class="product-card__image">
+                <div class="product-card__content">
+                    <h3 class="product-card__title">Smart Watch</h3>
+                    <p class="product-card__price">$99.99</p>
+                    <a href="#" class="product-card__button">Add to Cart</a>
+                </div>
+            </article>
+            <article class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 3" class="product-card__image">
+                <div class="product-card__content">
+                    <h3 class="product-card__title">Laptop</h3>
+                    <p class="product-card__price">$799.99</p>
+                    <a href="#" class="product-card__button">Add to Cart</a>
+                </div>
+            </article>
+            <article class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product 4" class="product-card__image">
+                <div class="product-card__content">
+                    <h3 class="product-card__title">Bluetooth Speaker</h3>
+                    <p class="product-card__price">$49.99</p>
+                    <a href="#" class="product-card__button">Add to Cart</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__section">
+                <h3 class="footer__title">Get to Know Us</h3>
+                <a href="#" class="footer__link">Careers</a>
+                <a href="#" class="footer__link">About Amazon</a>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Make Money with Us</h3>
+                <a href="#" class="footer__link">Sell on Amazon</a>
+                <a href="#" class="footer__link">Affiliate Program</a>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Help</h3>
+                <a href="#" class="footer__link">Customer Service</a>
+                <a href="#" class="footer__link">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

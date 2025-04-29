@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Launch Countdown Page</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* --------------------------------------
+           Countdown Container
+        -------------------------------------- */
+        .countdown {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .countdown__title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .countdown__subtitle {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            margin-bottom: 40px;
+        }
+
+        /* Timer */
+        .countdown__timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .countdown__unit {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown__unit:hover {
+            transform: scale(1.1);
+        }
+
+        .countdown__number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            animation: pulse 2s infinite;
+        }
+
+        .countdown__label {
+            font-size: 1rem;
+            color: #9ca3af;
+        }
+
+        /* CTA */
+        .countdown__button {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .countdown__button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .countdown__title {
+                font-size: 4rem;
+            }
+
+            .countdown__unit {
+                width: 120px;
+            }
+
+            .countdown__number {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .countdown__title {
+                font-size: 2rem;
+            }
+
+            .countdown__subtitle {
+                font-size: 1.2rem;
+            }
+
+            .countdown__timer {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .countdown__unit {
+                width: 80px;
+            }
+
+            .countdown__number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Countdown Section -->
+    <section class="countdown" role="region" aria-label="Product Launch Countdown">
+        <h1 class="countdown__title">Product Launch Countdown</h1>
+        <p class="countdown__subtitle">Get ready for something amazing!</p>
+        <div class="countdown__timer">
+            <div class="countdown__unit">
+                <span class="countdown__number">10</span>
+                <span class="countdown__label">Days</span>
+            </div>
+            <div class="countdown__unit">
+                <span class="countdown__number">12</span>
+                <span class="countdown__label">Hours</span>
+            </div>
+            <div class="countdown__unit">
+                <span class="countdown__number">45</span>
+                <span class="countdown__label">Minutes</span>
+            </div>
+            <div class="countdown__unit">
+                <span class="countdown__number">30</span>
+                <span class="countdown__label">Seconds</span>
+            </div>
+        </div>
+        <a href="#" class="countdown__button">Notify Me</a>
+    </section>
+</body>
+</html>

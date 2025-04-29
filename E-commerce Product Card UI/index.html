@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Card UI</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Reusable Component: Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Product Card Component */
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card__content {
+            padding: 15px;
+        }
+
+        .product-card__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-card__price {
+            font-size: 1.1rem;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        .product-card__rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            color: #f1c40f;
+        }
+
+        .product-card__button {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .product-card__button:hover {
+            background: #2980b9;
+        }
+
+        /* Mobile-First Responsive Design */
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card__title {
+                font-size: 1rem;
+            }
+
+            .product-card__image {
+                height: 150px;
+            }
+        }
+
+        /* Animation for Card Entrance */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-grid">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product" class="product-card__image">
+                <div class="product-card__content">
+                    <h2 class="product-card__title">Wireless Headphones</h2>
+                    <p class="product-card__price">$59.99</p>
+                    <div class="product-card__rating">
+                        <span>★★★★☆</span>
+                        <span>(120)</span>
+                    </div>
+                    <a href="#" class="product-card__button">Add to Cart</a>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product" class="product-card__image">
+                <div class="product-card__content">
+                    <h2 class="product-card__title">Smart Watch</h2>
+                    <p class="product-card__price">$99.99</p>
+                    <div class="product-card__rating">
+                        <span>★★★★★</span>
+                        <span>(200)</span>
+                    </div>
+                    <a href="#" class="product-card__button">Add to Cart</a>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Product" class="product-card__image">
+                <div class="product-card__content">
+                    <h2 class="product-card__title">Bluetooth Speaker</h2>
+                    <p class="product-card__price">$39.99</p>
+                    <div class="product-card__rating">
+                        <span>★★★★☆</span>
+                        <span>(80)</span>
+                    </div>
+                    <a href="#" class="product-card__button">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

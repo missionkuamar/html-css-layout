@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Aggregator Page Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #3182ce;
+            --secondary: #ffffff;
+            --text: #1a202c;
+            --accent: #edf2f7;
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--accent);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header__search {
+            display: flex;
+            align-items: center;
+            max-width: 400px;
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 0.5rem;
+        }
+
+        .header__search-input {
+            border: none;
+            font-size: 1rem;
+            flex: 1;
+            outline: none;
+        }
+
+        /* --------------------------------------
+           Tools Section
+        -------------------------------------- */
+        .tools {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .tool-card {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .tool-card__title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-card__description {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .tool-card__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .tool-card__button:hover {
+            background: #2b6cb0;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .tools {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .tools {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header__search {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">AIToolsHub</a>
+            <div class="header__search">
+                <input type="text" class="header__search-input" placeholder="Search AI Tools">
+            </div>
+        </div>
+    </header>
+
+    <!-- Tools Section -->
+    <section class="tools">
+        <article class="tool-card">
+            <h3 class="tool-card__title">Image Generator</h3>
+            <p class="tool-card__description">Create stunning visuals with AI-powered image generation.</p>
+            <a href="#" class="tool-card__button">Try Now</a>
+        </article>
+        <article class="tool-card">
+            <h3 class="tool-card__title">Text Summarizer</h3>
+            <p class="tool-card__description">Summarize long texts instantly with advanced NLP.</p>
+            <a href="#" class="tool-card__button">Try Now</a>
+        </article>
+        <article class="tool-card">
+            <h3 class="tool-card__title">Chatbot Builder</h3>
+            <p class="tool-card__description">Build intelligent chatbots for your business.</p>
+            <a href="#" class="tool-card__button">Try Now</a>
+        </article>
+    </section>
+</body>
+</html>

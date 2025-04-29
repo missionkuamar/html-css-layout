@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimal Blog | Article</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Merriweather', serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      z-index: 10;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #4b5563;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #3b82f6;
+    }
+
+    /* Article */
+    article {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .article__title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .article__meta {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .article__image {
+      border-radius: 10px;
+      height: auto;
+      margin-bottom: 25px;
+    }
+
+    .article__content p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #374151;
+    }
+
+    /* Comments */
+    .comments {
+      background: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin: 40px auto;
+      max-width: 800px;
+    }
+
+    .comments h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .comment {
+      display: flex;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid #e5e7eb;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    .comment:last-child {
+      border-bottom: none;
+    }
+
+    .comment__avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .comment__body {
+      flex: 1;
+    }
+
+    .comment__author {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .comment__text {
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header__container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .article__title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header__container">
+      <a href="#" class="logo" aria-label="Minimal Blog Logo">Minimal Blog</a>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Articles</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article>
+    <h1 class="article__title">The Future of Remote Work in 2025</h1>
+    <div class="article__meta">By John Doe · April 29, 2025</div>
+    <img src="https://via.placeholder.com/800x400" alt="Remote work illustration" class="article__image" />
+    <div class="article__content">
+      <p>Remote work has transformed the modern workplace, offering flexibility and autonomy to employees worldwide.</p>
+      <p>In 2025, hybrid models are expected to dominate, supported by immersive tech like VR meetings and smarter productivity tools.</p>
+      <p>To sustain this evolution, companies must prioritize mental wellness, foster engagement, and ensure equal opportunities for remote staff.</p>
+    </div>
+  </article>
+
+  <!-- Comments -->
+  <section class="comments">
+    <h2>Comments</h2>
+
+    <div class="comment">
+      <img src="https://via.placeholder.com/45" alt="Jane Smith avatar" class="comment__avatar" />
+      <div class="comment__body">
+        <p class="comment__author">Jane Smith</p>
+        <p class="comment__text">Great article! I love how hybrid models offer flexibility and structure.</p>
+      </div>
+    </div>
+
+    <div class="comment">
+      <img src="https://via.placeholder.com/45" alt="Mark Wilson avatar" class="comment__avatar" />
+      <div class="comment__body">
+        <p class="comment__author">Mark Wilson</p>
+        <p class="comment__text">Interesting take on VR meetings. Accessibility might still be a challenge though.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

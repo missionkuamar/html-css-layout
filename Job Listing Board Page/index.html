@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listing Board Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --------------------------------------
+           CSS Variables and Reset
+        -------------------------------------- */
+        :root {
+            --primary: #4c51bf;
+            --secondary: #ffffff;
+            --text: #1a202c;
+            --accent: #edf2f7;
+            --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--accent);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .header__search {
+            display: flex;
+            align-items: center;
+            max-width: 400px;
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 0.5rem;
+        }
+
+        .header__search-input {
+            border: none;
+            font-size: 1rem;
+            flex: 1;
+            outline: none;
+        }
+
+        /* --------------------------------------
+           Jobs Section
+        -------------------------------------- */
+        .jobs {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .job-card {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            animation: slideUp 0.6s ease-in-out;
+        }
+
+        .job-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .job-card__title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-card__company {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-card__details {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+
+        .job-card__button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .job-card__button:hover {
+            background: #434190;
+            transform: scale(1.05);
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .jobs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .jobs {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header__search {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">JobBoard</a>
+            <div class="header__search">
+                <input type="text" class="header__search-input" placeholder="Search Jobs">
+            </div>
+        </div>
+    </header>
+
+    <!-- Jobs Section -->
+    <section class="jobs">
+        <article class="job-card">
+            <h3 class="job-card__title">Software Engineer</h3>
+            <p class="job-card__company">TechCorp</p>
+            <p class="job-card__details">Remote • $120k/year</p>
+            <a href="#" class="job-card__button">Apply Now</a>
+        </article>
+        <article class="job-card">
+            <h3 class="job-card__title">Product Manager</h3>
+            <p class="job-card__company">Innovate Inc.</p>
+            <p class="job-card__details">On-site • $150k/year</p>
+            <a href="#" class="job-card__button">Apply Now</a>
+        </article>
+        <article class="job-card">
+            <h3 class="job-card__title">UX Designer</h3>
+            <p class="job-card__company">DesignHub</p>
+            <p class="job-card__details">Hybrid • $100k/year</p>
+            <a href="#" class="job-card__button">Apply Now</a>
+        </article>
+    </section>
+</body>
+</html>

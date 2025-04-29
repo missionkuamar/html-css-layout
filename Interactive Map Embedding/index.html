@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location Explorer</title>
+  <style>
+    /* Mobile-First CSS */
+    :root {
+      --primary: #4a6fa5;
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Map Component */
+    .map-wrapper {
+      width: 100%;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+
+    .responsive-map {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Card Grid Component */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (min-width: 768px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .responsive-map {
+        height: 400px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="map-wrapper">
+    <iframe 
+      class="responsive-map"
+      src="https://maps.google.com/maps?q=new+york&output=embed"
+      loading="lazy"
+      aria-label="New York Map">
+    </iframe>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300" alt="Place 1">
+      <div class="card-content">
+        <h3>Central Park</h3>
+        <p>Iconic urban park with walking trails</p>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+
+  <script>
+    // Simple interactive JS
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        alert('Card clicked! Implement navigation here.');
+      });
+    });
+  </script>
+</body>
+</html>

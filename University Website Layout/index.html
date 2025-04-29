@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Website Layout</title>
+    <style>
+        /* --------------------------------------
+           Reset and Base Styles
+        -------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+        /* --------------------------------------
+           Header
+        -------------------------------------- */
+        .header {
+            background: #1e40af;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header__link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .header__link:hover {
+            color: #93c5fd;
+            transform: translateY(-2px);
+        }
+
+        /* --------------------------------------
+           Hero Section
+        -------------------------------------- */
+        .hero {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+            animation: fadeInHero 1s ease-out;
+        }
+
+        .hero__container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero__title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero__subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #e5e7eb;
+        }
+
+        .hero__button {
+            background: #ffffff;
+            color: #1e40af;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero__button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --------------------------------------
+           Programs Section
+        -------------------------------------- */
+        .programs {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .programs__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .programs__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .program {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .program:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .program__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .program__text {
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+        /* --------------------------------------
+           News Section
+        -------------------------------------- */
+        .news {
+            background: #f9fafb;
+            padding: 60px 20px;
+        }
+
+        .news__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .news__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news__item {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news__item:hover {
+            transform: scale(1.05);
+        }
+
+        .news__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news__content {
+            padding: 20px;
+        }
+
+        .news__item-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .news__item-text {
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+        /* --------------------------------------
+           Animations
+        -------------------------------------- */
+        @keyframes fadeInHero {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------
+           Responsive Design (Mobile-First)
+        -------------------------------------- */
+        @media (min-width: 768px) {
+            .programs__grid, .news__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero__title {
+                font-size: 4.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .programs__grid, .news__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header__container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header__nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero__title {
+                font-size: 2.5rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="#" class="header__logo">EduHub University</a>
+            <nav class="header__nav" aria-label="Main Navigation">
+                <a href="#" class="header__link">Home</a>
+                <a href="#" class="header__link">Programs</a>
+                <a href="#" class="header__link">Admissions</a>
+                <a href="#" class="header__link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" role="region" aria-label="Hero Section">
+        <div class="hero__container">
+            <h1 class="hero__title">Discover Your Future</h1>
+            <p class="hero__subtitle">Join our vibrant academic community.</p>
+            <a href="#" class="hero__button">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" role="region" aria-label="Academic Programs">
+        <h2 class="programs__title">Our Programs</h2>
+        <div class="programs__grid">
+            <div class="program">
+                <h3 class="program__title">Computer Science</h3>
+                <p class="program__text">Learn cutting-edge technology and innovation.</p>
+            </div>
+            <div class="program">
+                <h3 class="program__title">Business Administration</h3>
+                <p class="program__text">Develop leadership and management skills.</p>
+            </div>
+            <div class="program">
+                <h3 class="program__title">Engineering</h3>
+                <p class="program__text">Solve real-world problems with engineering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news" role="region" aria-label="University News">
+        <h2 class="news__title">Latest News</h2>
+        <div class="news__grid">
+            <article class="news__item">
+                <img src="https://via.placeholder.com/400x200" alt="News 1" class="news__image">
+                <div class="news__content">
+                    <h3 class="news__item-title">New Research Center</h3>
+                    <p class="news__item-text">Opening a state-of-the-art facility.</p>
+                </div>
+            </article>
+            <article class="news__item">
+                <img src="https://via.placeholder.com/400x200" alt="News 2" class="news__image">
+                <div class="news__content">
+                    <h3 class="news__item-title">Campus Expansion</h3>
+                    <p class="news__item-text">New buildings for student life.</p>
+                </div>
+            </article>
+            <article class="news__item">
+                <img src="https://via.placeholder.com/400x200" alt="News 3" class="news__image">
+                <div class="news__content">
+                    <h3 class="news__item-title">Scholarship Program</h3>
+                    <p class="news__item-text">New opportunities for students.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+</html>
