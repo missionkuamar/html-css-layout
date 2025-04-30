@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippet Embed UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-poppins">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-purple-600">CodeHub</a>
+        </nav>
+    </header>
+
+    <!-- Code Snippet Section -->
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+            <h1 class="text-2xl font-bold text-gray-800 mb-4">Code Snippet</h1>
+            <pre class="bg-gray-800 text-white p-4 rounded-lg"><code>function helloWorld() {
+    console.log('Hello, World!');
+}</code></pre>
+            <div class="flex space-x-4 mt-4">
+                <button onclick="copyCode()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">Copy</button>
+                <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300">Embed</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function copyCode() {
+            const code = document.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => alert('Code copied!'));
+        }
+    </script>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s ease-in-out; }
+    </style>
+</body>
+</html>

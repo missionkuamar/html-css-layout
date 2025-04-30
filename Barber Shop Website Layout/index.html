@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Shop Website Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-roboto-slab">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">SharpCuts</a>
+            <div class="flex space-x-6">
+                <a href="#services" class="text-gray-600 hover:text-gray-800 transition">Services</a>
+                <a href="#contact" class="text-gray-600 hover:text-gray-800 transition">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center py-40 text-center text-white" style="background-image: url('https://via.placeholder.com/1200x600')">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 animate-fade-in">Look Sharp, Feel Great</h1>
+            <p class="text-lg sm:text-xl mb-8">Premium barber services for the modern man.</p>
+            <a href="#contact" class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition transform hover:-translate-y-1">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transform transition hover:scale-105 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-2">Haircut</h3>
+                    <p class="text-gray-600">$30 | Classic and modern styles.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transform transition hover:scale-105 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-2">Beard Trim</h3>
+                    <p class="text-gray-600">$20 | Precision grooming.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center transform transition hover:scale-105 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-2">Hot Shave</h3>
+                    <p class="text-gray-600">$35 | Luxurious straight-razor shave.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-800 text-white py-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-8">Book Your Appointment</h2>
+            <form class="space-y-6">
+                <input type="text" placeholder="Name" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500" required>
+                <input type="email" placeholder="Email" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500" required>
+                <input type="date" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500" required>
+                <button type="submit" class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition transform hover:-translate-y-1">Book Now</button>
+            </form>
+        </div>
+    </section>
+
+    <style>
+        /* Custom Animations */
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-in-out;
+        }
+        .animate-slide-up {
+            animation: slide-up 0.6s ease-in-out;
+        }
+    </style>
+</body>
+</html>

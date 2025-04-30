@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Navbar with Shadow on Scroll</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-poppins">
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-white sticky top-0 z-50 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-purple-600">Logo</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-700 hover:text-purple-600 transition">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-purple-600 transition">About</a>
+                    <a href="#" class="text-gray-700 hover:text-purple-600 transition">Services</a>
+                    <a href="#" class="text-gray-700 hover:text-purple-600 transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sample Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl font-bold text-gray-900">Sticky Navbar Demo</h1>
+        <p class="mt-4 text-gray-600">Scroll down to see the navbar gain a shadow.</p>
+        <div class="h-[2000px]"></div> <!-- Simulate scrollable content -->
+    </main>
+
+    <script>
+        // Add shadow on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>

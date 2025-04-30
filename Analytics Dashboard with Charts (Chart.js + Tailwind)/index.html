@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard with Charts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-inter">
+    <!-- Sidebar -->
+    <aside class="fixed inset-y-0 left-0 w-64 bg-indigo-800 text-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+        <div class="p-4">
+            <h2 class="text-xl font-bold">Analytics Dashboard</h2>
+        </div>
+        <nav class="mt-6">
+            <a href="#" class="block px-4 py-2 text-indigo-200 hover:bg-indigo-700 hover:text-white">Overview</a>
+            <a href="#" class="block px-4 py-2 text-indigo-200 hover:bg-indigo-700 hover:text-white">Sales</a>
+            <a href="#" class="block px-4 py-2 text-indigo-200 hover:bg-indigo-700 hover:text-white">Users</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="lg:ml-64">
+        <header class="bg-white shadow py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Analytics Overview</h1>
+            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Logout</button>
+        </header>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800">Total Sales</h3>
+                    <p class="text-2xl font-bold text-indigo-600">$15,678</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800">New Users</h3>
+                    <p class="text-2xl font-bold text-indigo-600">1,234</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800">Orders</h3>
+                    <p class="text-2xl font-bold text-indigo-600">789</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800">Revenue Growth</h3>
+                    <p class="text-2xl font-bold text-indigo-600">12.5%</p>
+                </div>
+            </div>
+            <!-- Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Sales Over Time</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">User Distribution</h3>
+                    <canvas id="userChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sales Chart (Line)
+        new Chart(document.getElementById('salesChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+                datasets: [{
+                    label: 'Sales ($)',
+                    data: [5000, 7000, 6000, 9000],
+                    borderColor: '#4f46e5',
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // User Chart (Pie)
+        new Chart(document.getElementById('userChart'), {
+            type: 'pie',
+            data: {
+                labels: ['New', 'Returning', 'Inactive'],
+                datasets: [{
+                    data: [300, 700, 234],
+                    backgroundColor: ['#4f46e5', '#10b981', '#ef4444']
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s ease-in-out; }
+    </style>
+</body>
+</html>

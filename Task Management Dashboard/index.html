@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-poppins">
+    <!-- Sidebar -->
+    <aside class="fixed inset-y-0 left-0 w-64 bg-purple-800 text-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+        <div class="p-4"><h2 class="text-xl font-bold">Task Manager</h2></div>
+        <nav class="mt-6">
+            <a href="#" class="block px-4 py-2 text-purple-200 hover:bg-purple-700 hover:text-white">Tasks</a>
+            <a href="#" class="block px-4 py-2 text-purple-200 hover:bg-purple-700 hover:text-white">Projects</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="lg:ml-64">
+        <header class="bg-white shadow py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Tasks</h1>
+            <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">Add Task</button>
+        </header>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Filters -->
+            <div class="flex space-x-4 mb-6">
+                <button class="px-4 py-2 bg-purple-100 text-purple-600 rounded-lg" onclick="filterTasks('all')">All</button>
+                <button class="px-4 py-2 bg-purple-100 text-purple-600 rounded-lg" onclick="filterTasks('pending')">Pending</button>
+                <button class="px-4 py-2 bg-purple-100 text-purple-600 rounded-lg" onclick="filterTasks('completed')">Completed</button>
+            </div>
+            <!-- Task List -->
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up task" data-status="pending">
+                    <h3 class="text-lg font-semibold">Design Homepage</h3>
+                    <p class="text-gray-600">Due: 2025-05-05</p>
+                    <p class="text-gray-600">Status: <span class="text-yellow-600">Pending</span></p>
+                    <button class="mt-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">Mark Complete</button>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up task" data-status="completed">
+                    <h3 class="text-lg font-semibold">Update Database</h3>
+                    <p class="text-gray-600">Due: 2025-04-28</p>
+                    <p class="text-gray-600">Status: <span class="text-green-600">Completed</span></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function filterTasks(status) {
+            document.querySelectorAll('.task').forEach(task => {
+                task.style.display = status === 'all' || task.dataset.status === status ? 'block' : 'none';
+            });
+        }
+    </script>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s ease-in-out; }
+    </style>
+</body>
+</html>

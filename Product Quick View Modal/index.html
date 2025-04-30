@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Quick View Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-inter">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">ShopTrend</a>
+        </nav>
+    </header>
+
+    <!-- Trigger Button -->
+    <section class="py-16 text-center">
+        <button onclick="openModal()" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">View Product</button>
+    </section>
+
+    <!-- Modal -->
+    <div id="quick-view-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-4xl w-full mx-4 grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">
+            <!-- Image -->
+            <img src="https://via.placeholder.com/400x400" alt="Product" class="w-full h-96 object-cover rounded-lg">
+            <!-- Details -->
+            <div class="space-y-4">
+                <h2 class="text-2xl font-bold">Premium Sneakers</h2>
+                <p class="text-xl font-semibold text-indigo-600">$120.00</p>
+                <p class="text-gray-600">High-quality sneakers with advanced cushioning.</p>
+                <!-- Variants: Color -->
+                <div>
+                    <h3 class="text-lg font-semibold">Color</h3>
+                    <div class="flex space-x-4 mt-2">
+                        <button class="w-8 h-8 bg-black rounded-full focus:ring-2 focus:ring-indigo-500" aria-label="Black"></button>
+                        <button class="w-8 h-8 bg-red-500 rounded-full focus:ring-2 focus:ring-indigo-500" aria-label="Red"></button>
+                    </div>
+                </div>
+                <!-- Variants: Size -->
+                <div>
+                    <h3 class="text-lg font-semibold">Size</h3>
+                    <div class="flex space-x-4 mt-2">
+                        <button class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 focus:ring-2 focus:ring-indigo-500">8</button>
+                        <button class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 focus:ring-2 focus:ring-indigo-500">9</button>
+                    </div>
+                </div>
+                <button class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition transform hover:-translate-y-1 w-full">Add to Cart</button>
+                <button onclick="closeModal()" class="text-gray-600 hover:text-gray-800 w-full">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('quick-view-modal').classList.remove('hidden');
+        }
+        function closeModal() {
+            document.getElementById('quick-view-modal').classList.add('hidden');
+        }
+    </script>
+
+    <style>
+        /* Custom Animations */
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.4s ease-in-out;
+        }
+    </style>
+</body>
+</html>

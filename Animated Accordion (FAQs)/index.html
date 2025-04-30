@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Accordion (FAQs)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom animation for accordion */
+        .accordion-enter {
+            max-height: 0;
+            opacity: 0;
+        }
+        .accordion-enter-active {
+            max-height: 200px; /* Adjust based on content */
+            opacity: 1;
+            transition: max-height 300ms ease, opacity 300ms ease;
+        }
+        .accordion-exit {
+            max-height: 200px;
+            opacity: 1;
+        }
+        .accordion-exit-active {
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 300ms ease, opacity 300ms ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-poppins py-12">
+    <!-- Accordion -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h1>
+        <div class="space-y-4">
+            <!-- Accordion Item 1 -->
+            <div class="bg-white rounded-lg shadow-md">
+                <button class="w-full text-left px-4 py-3 flex justify-between items-center text-gray-900 font-semibold hover:bg-gray-50 focus:outline-none" data-accordion="accordion-1">
+                    What is your service about?
+                    <svg class="h-5 w-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="accordion-1" class="px-4 pb-4 text-gray-600 hidden accordion-enter-active">
+                    Our service provides tailored solutions to help businesses grow through innovative technology and design.
+                </div>
+            </div>
+            <!-- Accordion Item 2 -->
+            <div class="bg-white rounded-lg shadow-md">
+                <button class="w-full text-left px-4 py-3 flex justify-between items-center text-gray-900 font-semibold hover:bg-gray-50 focus:outline-none" data-accordion="accordion-2">
+                    How can I contact support?
+                    <svg class="h-5 w-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="accordion-2" class="px-4 pb-4 text-gray-600 hidden accordion-enter-active">
+                    You can reach our support team via email at support@example.com or through our contact form.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const accordionButtons = document.querySelectorAll('[data-accordion]');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-accordion');
+                const targetContent = document.getElementById(targetId);
+                const isOpen = !targetContent.classList.contains('hidden');
+                
+                // Close all other accordions
+                document.querySelectorAll('[data-accordion]').forEach(otherButton => {
+                    const otherId = otherButton.getAttribute('data-accordion');
+                    const otherContent = document.getElementById(otherId);
+                    otherContent.classList.add('hidden');
+                    otherContent.classList.remove('accordion-enter-active');
+                    otherButton.querySelector('svg').classList.remove('rotate-180');
+                });
+
+                // Toggle current accordion
+                if (!isOpen) {
+                    targetContent.classList.remove('hidden');
+                    targetContent.classList.add('accordion-enter-active');
+                    button.querySelector('svg').classList.add('rotate-180');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

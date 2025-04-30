@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Toast Component</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom animation for toast */
+        .toast-enter {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .toast-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 300ms ease, transform 300ms ease;
+        }
+        .toast-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .toast-exit-active {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 300ms ease, transform 300ms ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-inter flex items-center justify-center min-h-screen">
+    <!-- Trigger Button -->
+    <button id="show-toast" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
+        Show Toast
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-3 rounded-md shadow-lg hidden toast-enter-active">
+        <div class="flex items-center">
+            <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Success! Your action was completed.</span>
+        </div>
+        <button id="close-toast" class="ml-4 text-white hover:text-gray-200 focus:outline-none">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        const showToastButton = document.getElementById('show-toast');
+        const toast = document.getElementById('toast');
+        const closeToastButton = document.getElementById('close-toast');
+
+        function showToast() {
+            toast.classList.remove('hidden');
+            toast.classList.add('toast-enter-active');
+            setTimeout(() => {
+                hideToast();
+            }, 3000); // Auto-dismiss after 3 seconds
+        }
+
+        function hideToast() {
+            toast.classList.remove('toast-enter-active');
+            toast.classList.add('toast-exit-active');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('toast-exit-active');
+            }, 300);
+        }
+
+        showToastButton.addEventListener('click', showToast);
+        closeToastButton.addEventListener('click', hideToast);
+    </script>
+</body>
+</html>

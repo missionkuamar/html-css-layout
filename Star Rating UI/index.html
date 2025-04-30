@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-inter flex items-center justify-center min-h-screen">
+    <!-- Star Rating -->
+    <div class="flex items-center space-x-1" id="star-rating">
+        <button class="text-yellow-400 hover:text-yellow-500 focus:outline-none" data-rating="1">
+            <svg class="h-8 w-8 fill-current" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        </button>
+        <button class="text-yellow-400 hover:text-yellow-500 focus:outline-none" data-rating="2">
+            <svg class="h-8 w-8 fill-current" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        </button>
+        <button class="text-yellow-400 hover:text-yellow-500 focus:outline-none" data-rating="3">
+            <svg class="h-8 w-8 fill-current" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        </button>
+        <button class="text-gray-300 hover:text-yellow-500 focus:outline-none" data-rating="4">
+            <svg class="h-8 w-8 fill-current" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        </button>
+        <button class="text-gray-300 hover:text-yellow-500 focus:outline-none" data-rating="5">
+            <svg class="h-8 w-8 fill-current" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        const starButtons = document.querySelectorAll('#star-rating button');
+        starButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const rating = parseInt(button.getAttribute('data-rating'));
+                starButtons.forEach((btn, index) => {
+                    if (index < rating) {
+                        btn.classList.add('text-yellow-400');
+                        btn.classList.remove('text-gray-300');
+                    } else {
+                        btn.classList.add('text-gray-300');
+                        btn.classList.remove('text-yellow-400');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

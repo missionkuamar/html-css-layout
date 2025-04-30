@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Files UI + Progress</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-source-sans">
+    <!-- Header -->
+    <header class="bg-white shadow py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-gray-800">Upload Files</h1>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Back</button>
+    </header>
+
+    <!-- Upload Section -->
+    <main class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Upload Files</h2>
+            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <input type="file" id="fileInput" class="hidden" multiple>
+                <label for="fileInput" class="cursor-pointer text-blue-600 hover:text-blue-700">Drag & Drop or Click to Upload</label>
+            </div>
+            <div id="progress" class="mt-4 hidden">
+                <p class="text-gray-600 mb-2">Uploading...</p>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div id="progressBar" class="bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+            <button onclick="simulateUpload()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 w-full">Start Upload</button>
+        </div>
+    </main>
+
+    <script>
+        function simulateUpload() {
+            const progress = document.getElementById('progress');
+            const progressBar = document.getElementById('progressBar');
+            progress.classList.remove('hidden');
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    progressBar.style.width = '100%';
+                } else {
+                    width += 10;
+                    progressBar.style.width = `${width}%`;
+                }
+            }, 500);
+        }
+    </script>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s ease-in-out; }
+    </style>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Module Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-poppins">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-purple-600">LearnHub</a>
+        </nav>
+    </header>
+
+    <!-- Course Module Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+            <h1 class="text-2xl font-bold text-gray-800 mb-4">Web Development Course</h1>
+            <div class="space-y-6">
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-800">Module 1: HTML Basics</h2>
+                    <div class="mt-4 space-y-2">
+                        <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                            <p class="text-gray-600">Lesson 1: Introduction to HTML</p>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">Start</button>
+                        </div>
+                        <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                            <p class="text-gray-600">Lesson 2: HTML Elements</p>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s ease-in-out; }
+    </style>
+</body>
+</html>

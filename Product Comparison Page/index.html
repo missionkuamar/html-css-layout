@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Comparison Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-source-sans">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">ShopTrend</a>
+        </nav>
+    </header>
+
+    <!-- Comparison Section -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-8">Compare Products</h1>
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white rounded-lg shadow-lg animate-slide-up">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="p-4 text-left"></th>
+                            <th class="p-4 text-left">Premium Sneakers</th>
+                            <th class="p-4 text-left">Smart Watch</th>
+                            <th class="p-4 text-left">Graphic T-Shirt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="p-4 font-semibold">Image</td>
+                            <td class="p-4"><img src="https://via.placeholder.com/100x100" alt="Sneakers" class="w-24 h-24 object-cover rounded-lg"></td>
+                            <td class="p-4"><img src="https://via.placeholder.com/100x100" alt="Watch" class="w-24 h-24 object-cover rounded-lg"></td>
+                            <td class="p-4"><img src="https://via.placeholder.com/100x100" alt="T-Shirt" class="w-24 h-24 object-cover rounded-lg"></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4 font-semibold">Price</td>
+                            <td class="p-4">$120.00</td>
+                            <td class="p-4">$80.00</td>
+                            <td class="p-4">$45.00</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4 font-semibold">Category</td>
+                            <td class="p-4">Sneakers</td>
+                            <td class="p-4">Accessories</td>
+                            <td class="p-4">Apparel</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4 font-semibold">Rating</td>
+                            <td class="p-4">★★★★☆</td>
+                            <td class="p-4">★★★★★</td>
+                            <td class="p-4">★★★☆☆</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold">Action</td>
+                            <td class="p-4"><button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Add to Cart</button></td>
+                            <td class="p-4"><button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Add to Cart</button></td>
+                            <td class="p-4"><button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Add to Cart</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Custom Animations */
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slide-up 0.6s ease-in-out;
+        }
+    </style>
+</body>
+</html>

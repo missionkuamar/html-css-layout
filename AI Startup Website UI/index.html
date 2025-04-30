@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Startup Website UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-inter">
+    <!-- Header -->
+    <header class="bg-gray-800 shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-400">AIInnovate</a>
+            <div class="flex space-x-6">
+                <a href="#solutions" class="text-gray-300 hover:text-blue-400 transition">Solutions</a>
+                <a href="#contact" class="text-gray-300 hover:text-blue-400 transition">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-indigo-600 py-20 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 animate-fade-in">Powering the Future with AI</h1>
+            <p class="text-lg sm:text-xl mb-8">Innovative AI solutions for businesses worldwide.</p>
+            <a href="#contact" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition transform hover:-translate-y-1">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-16 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8 text-center">Our AI Solutions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-700 rounded-lg shadow-lg p-6 text-center transform transition hover:scale-105 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-2">Machine Learning</h3>
+                    <p class="text-gray-300">Custom models for predictive analytics.</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg shadow-lg p-6 text-center transform transition hover:scale-105 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-2">Natural Language Processing</h3>
+                    <p class="text-gray-300">Advanced chatbots and text analysis.</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg shadow-lg p-6 text-center transform transition hover:scale-105 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-2">Computer Vision</h3>
+                    <p class="text-gray-300">Image recognition and processing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-8">Let’s Innovate Together</h2>
+            <form class="space-y-6">
+                <input type="text" placeholder="Name" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="email" placeholder="Email" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <textarea placeholder="Message" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="5" required></textarea>
+                <button type="submit" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition transform hover:-translate-y-1">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <style>
+        /* Custom Animations */
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-in-out;
+        }
+        .animate-slide-up {
+            animation: slide-up 0.6s ease-in-out;
+        }
+    </style>
+</body>
+</html>

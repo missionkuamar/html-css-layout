@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Dropdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom animation for dropdown */
+        .dropdown-enter {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .dropdown-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 300ms ease, transform 300ms ease;
+        }
+        .dropdown-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dropdown-exit-active {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 300ms ease, transform 300ms ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-inter">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-indigo-600">Brand</a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 transition">About</a>
+                    <!-- Dropdown -->
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-indigo-600 transition flex items-center">
+                            Services
+                            <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transform transition-all duration-300 dropdown-enter-active hidden group-hover:block">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50">Consulting</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50">Development</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50">Design</a>
+                        </div>
+                    </div>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 rounded-md">Home</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 rounded-md">About</a>
+                <!-- Mobile Dropdown -->
+                <div>
+                    <button id="mobile-dropdown-button" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-indigo-50 rounded-md flex justify-between items-center">
+                        Services
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mobile-dropdown" class="hidden pl-4 space-y-1">
+                        <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 rounded-md">Consulting</a>
+                        <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 rounded-md">Development</a>
+                        <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 rounded-md">Design</a>
+                    </div>
+                </div>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 rounded-md">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sample Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="text-3xl font-bold text-gray-900">Welcome to My Website</h1>
+        <p class="mt-4 text-gray-600">This is a responsive navbar with a dropdown menu built using Tailwind CSS.</p>
+    </main>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile Dropdown Toggle
+        const mobileDropdownButton = document.getElementById('mobile-dropdown-button');
+        const mobileDropdown = document.getElementById('mobile-dropdown');
+        mobileDropdownButton.addEventListener('click', () => {
+            mobileDropdown.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

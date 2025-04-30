@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-inter">
+    <!-- Sidebar -->
+    <aside class="fixed inset-y-0 left-0 w-64 bg-indigo-800 text-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+        <div class="p-4"><h2 class="text-xl font-bold">LearnHub</h2></div>
+        <nav class="mt-6">
+            <a href="#" class="block px-4 py-2 text-indigo-200 hover:bg-indigo-700 hover:text-white">Dashboard</a>
+            <a href="#" class="block px-4 py-2 text-indigo-200 hover:bg-indigo-700 hover:text-white">Courses</a>
+            <a href="#" class="block px-4 py-2 text-indigo-200 hover:bg-indigo-700 hover:text-white">Progress</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="lg:ml-64">
+        <header class="bg-white shadow py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
+            <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Profile</button>
+        </header>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Progress Overview -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800">Courses Enrolled</h3>
+                    <p class="text-2xl font-bold text-indigo-600">3</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800">Completed</h3>
+                    <p class="text-2xl font-bold text-indigo-600">1</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-lg font-semibold text-gray-800">Certificates</h3>
+                    <p class="text-2xl font-bold text-indigo-600">1</p>
+                </div>
+            </div>
+            <!-- Active Courses -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-4">Active Courses</h2>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg animate-slide-up">
+                        <h3 class="text-lg font-semibold text-gray-800">Web Development</h3>
+                        <p class="text-gray-600">Progress: 60%</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                            <div class="bg-indigo-600 h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s ease-in-out; }
+    </style>
+</body>
+</html>

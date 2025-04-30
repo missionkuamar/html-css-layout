@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Resume Builder UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-nunito">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-purple-600">ResumeCraft</a>
+            <div class="flex space-x-6">
+                <a href="#builder" class="text-gray-600 hover:text-purple-600 transition">Build</a>
+                <a href="#contact" class="text-gray-600 hover:text-purple-600 transition">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-purple-600 text-white py-20 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 animate-fade-in">Build Your Resume</h1>
+            <p class="text-lg sm:text-xl mb-8">Create a professional resume in minutes.</p>
+            <a href="#builder" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition transform hover:-translate-y-1">Start Now</a>
+        </div>
+    </section>
+
+    <!-- Builder Section -->
+    <section id="builder" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Resume Builder</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <form class="bg-white rounded-lg shadow-lg p-6 space-y-6 animate-slide-up">
+                    <div>
+                        <label for="name" class="block text-gray-600 font-semibold">Full Name</label>
+                        <input type="text" id="name" class="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-600 font-semibold">Email</label>
+                        <input type="email" id="email" class="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                    </div>
+                    <div>
+                        <label for="experience" class="block text-gray-600 font-semibold">Experience</label>
+                        <textarea id="experience" class="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition transform hover:-translate-y-1">Generate Resume</button>
+                </form>
+                <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+                    <h3 class="text-xl font-semibold mb-4">Resume Preview</h3>
+                    <p class="text-gray-600">Your resume will appear here once you fill out the form.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-800 text-white py-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
+            <form class="space-y-6">
+                <input type="text" placeholder="Name" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                <input type="email" placeholder="Email" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                <textarea placeholder="Message" class="w-full p-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500" rows="5" required></textarea>
+                <button type="submit" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition transform hover:-translate-y-1">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <style>
+        /* Custom Animations */
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-in-out;
+        }
+        .animate-slide-up {
+            animation: slide-up 0.6s ease-in-out;
+        }
+    </style>
+</body>
+</html>

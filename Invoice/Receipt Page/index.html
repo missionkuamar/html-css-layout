@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice/Receipt Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-montserrat">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-600">ShopTrend</a>
+        </nav>
+    </header>
+
+    <!-- Invoice Section -->
+    <section class="py-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Invoice #12345</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <p class="font-semibold">Issued: April 30, 2025</p>
+                    <p class="text-gray-600">Customer: John Doe</p>
+                </div>
+                <div class="text-right">
+                    <p class="font-semibold">ShopTrend</p>
+                    <p class="text-gray-600">123 Commerce St, NY</p>
+                </div>
+            </div>
+            <table class="w-full border-t">
+                <thead>
+                    <tr class="border-b">
+                        <th class="p-4 text-left">Item</th>
+                        <th class="p-4 text-right">Quantity</th>
+                        <th class="p-4 text-right">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-4">Premium Sneakers</td>
+                        <td class="p-4 text-right">1</td>
+                        <td class="p-4 text-right">$120.00</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4">Graphic T-Shirt</td>
+                        <td class="p-4 text-right">2</td>
+                        <td class="p-4 text-right">$90.00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="border-t">
+                        <td class="p-4 font-semibold" colspan="2">Subtotal</td>
+                        <td class="p-4 text-right">$210.00</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-semibold" colspan="2">Shipping</td>
+                        <td class="p-4 text-right">$10.00</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-semibold" colspan="2">Total</td>
+                        <td class="p-4 text-right font-bold">$220.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="mt-6 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition transform hover:-translate-y-1 w-full">Download PDF</button>
+        </div>
+    </section>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slide-up 0.6s ease-in-out;
+        }
+    </style>
+</body>
+</html>

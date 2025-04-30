@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Roles & Permissions Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-manrope">
+    <!-- Header -->
+    <header class="bg-white shadow py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-gray-800">User Roles</h1>
+        <button class="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700">Add Role</button>
+    </header>
+
+    <!-- Roles Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Manage Roles & Permissions</h2>
+            <table class="w-full">
+                <thead>
+                    <tr class="border-b">
+                        <th class="p-4 text-left">Role</th>
+                        <th class="p-4 text-left">Permissions</th>
+                        <th class="p-4 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b hover:bg-gray-50 animate-slide-up">
+                        <td class="p-4">Admin</td>
+                        <td class="p-4">All Access</td>
+                        <td class="p-4">
+                            <button class="text-teal-600 hover:text-teal-700 mr-2">Edit</button>
+                            <button class="text-red-600 hover:text-red-700">Delete</button>
+                        </td>
+                    </tr>
+                    <tr class="border-b hover:bg-gray-50 animate-slide-up">
+                        <td class="p-4">Editor</td>
+                        <td class="p-4">Manage Content</td>
+                        <td class="p-4">
+                            <button class="text-teal-600 hover:text-teal-700 mr-2">Edit</button>
+                            <button class="text-red-600 hover:text-red-700">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s ease-in-out; }
+    </style>
+</body>
+</html>

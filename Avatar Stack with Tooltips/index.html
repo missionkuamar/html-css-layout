@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Stack with Tooltips</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-inter flex items-center justify-center min-h-screen">
+    <!-- Avatar Stack -->
+    <div class="flex -space-x-4">
+        <div class="relative group">
+            <img class="w-12 h-12 rounded-full border-2 border-white" src="https://via.placeholder.com/50" alt="User 1">
+            <div class="absolute bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-sm rounded-md px-2 py-1">
+                John Doe
+            </div>
+        </div>
+        <div class="relative group">
+            <img class="w-12 h-12 rounded-full border-2 border-white" src="https://via.placeholder.com/50" alt="User 2">
+            <div class="absolute bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-sm rounded-md px-2 py-1">
+                Jane Smith
+            </div>
+        </div>
+        <div class="relative group">
+            <img class="w-12 h-12 rounded-full border-2 border-white" src="https://via.placeholder.com/50" alt="User 3">
+            <div class="absolute bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-sm rounded-md px-2 py-1">
+                Mike Brown
+            </div>
+        </div>
+        <div class="relative flex items-center justify-center w-12 h-12 rounded-full bg-gray-300 border-2 border-white text-gray-700 font-semibold">
+            +5
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary Component</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-manrope">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-teal-600">ShopTrend</a>
+        </nav>
+    </header>
+
+    <!-- Order Summary Component -->
+    <section class="py-16">
+        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+            <h2 class="text-xl font-bold mb-4">Order Summary</h2>
+            <div class="space-y-4">
+                <div class="flex justify-between">
+                    <span>Premium Sneakers</span>
+                    <span>$120.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Graphic T-Shirt</span>
+                    <span>$45.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Shipping</span>
+                    <span>$10.00</span>
+                </div>
+                <div class="flex justify-between font-semibold">
+                    <span>Total</span>
+                    <span>$175.00</span>
+                </div>
+                <button class="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition transform hover:-translate-y-1 w-full">Proceed to Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slide-up 0.6s ease-in-out;
+        }
+    </style>
+</body>
+</html>

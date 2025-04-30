@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You Page after Order</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-inter">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">ShopTrend</a>
+        </nav>
+    </header>
+
+    <!-- Thank You Section -->
+    <section class="py-16">
+        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 text-center bg-white rounded-lg shadow-lg p-6 animate-fade-in">
+            <div class="text-green-500 text-5xl mb-4">✔</div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Thank You for Your Order!</h1>
+            <p class="text-gray-600 mb-4">Order #12345 has been placed. You’ll receive a confirmation email soon.</p>
+            <p class="text-gray-600 mb-6">Estimated Delivery: May 5, 2025</p>
+            <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition transform hover:-translate-y-1">Continue Shopping</a>
+        </div>
+    </section>
+
+    <style>
+        @keyframes fade-in {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-in-out;
+        }
+    </style>
+</body>
+</html>

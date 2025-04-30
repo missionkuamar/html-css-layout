@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Center Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-poppins">
+    <!-- Header -->
+    <header class="bg-white shadow py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-gray-800">Notifications</h1>
+        <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">Mark All Read</button>
+    </header>
+
+    <!-- Notifications Section -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 animate-slide-up">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Recent Notifications</h2>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between border-b pb-4 animate-slide-up">
+                    <div>
+                        <p class="font-semibold text-gray-800">New Order</p>
+                        <p class="text-gray-600 text-sm">Order #12345 placed</p>
+                    </div>
+                    <span class="bg-purple-600 text-white px-2 py-1 rounded text-sm">Unread</span>
+                </div>
+                <div class="flex items-center justify-between border-b pb-4 animate-slide-up">
+                    <div>
+                        <p class="font-semibold text-gray-800">User Signed Up</p>
+                        <p class="text-gray-600 text-sm">Jane Smith joined</p>
+                    </div>
+                    <span class="bg-gray-200 text-gray-600 px-2 py-1 rounded text-sm">Read</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s ease-in-out; }
+    </style>
+</body>
+</html>

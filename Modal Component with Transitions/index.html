@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Component with Transitions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom animation for modal */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 300ms ease, transform 300ms ease;
+        }
+        .modal-exit {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .modal-exit-active {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 300ms ease, transform 300ms ease;
+        }
+        .backdrop-enter {
+            opacity: 0;
+        }
+        .backdrop-enter-active {
+            opacity: 1;
+            transition: opacity 300ms ease;
+        }
+        .backdrop-exit {
+            opacity: 1;
+        }
+        .backdrop-exit-active {
+            opacity: 0;
+            transition: opacity 300ms ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-poppins flex items-center justify-center min-h-screen">
+    <!-- Trigger Button -->
+    <button id="open-modal" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
+        Open Modal
+    </button>
+
+    <!-- Modal -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden backdrop-enter-active" aria-hidden="true"></div>
+    <div id="modal" class="fixed inset-0 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6 modal-enter-active">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Welcome!</h2>
+            <p class="text-gray-600 mb-6">This is a responsive modal with smooth transitions built using Tailwind CSS.</p>
+            <div class="flex justify-end space-x-4">
+                <button id="close-modal" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400 transition">Close</button>
+                <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const openModalButton = document.getElementById('open-modal');
+        const closeModalButton = document.getElementById('close-modal');
+        const modal = document.getElementById('modal');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            modalBackdrop.classList.remove('hidden');
+            modal.querySelector('div').classList.add('modal-enter-active');
+            modalBackdrop.classList.add('backdrop-enter-active');
+        }
+
+        function closeModal() {
+            modal.querySelector('div').classList.remove('modal-enter-active');
+            modal.querySelector('div').classList.add('modal-exit-active');
+            modalBackdrop.classList.remove('backdrop-enter-active');
+            modalBackdrop.classList.add('backdrop-exit-active');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalBackdrop.classList.add('hidden');
+                modal.querySelector('div').classList.remove('modal-exit-active');
+                modalBackdrop.classList.remove('backdrop-exit-active');
+            }, 300);
+        }
+
+        openModalButton.addEventListener('click', openModal);
+        closeModalButton.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', closeModal);
+    </script>
+</body>
+</html>

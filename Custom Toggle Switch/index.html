@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Toggle Switch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for toggle switch */
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #4c51bf;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-ball {
+            transform: translateX(24px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-inter flex items-center justify-center min-h-screen">
+    <!-- Toggle Switch -->
+    <div class="flex items-center space-x-4">
+        <span class="text-gray-700 font-medium">Dark Mode</span>
+        <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" class="sr-only toggle-checkbox" id="toggle">
+            <div class="toggle-label w-12 h-6 bg-gray-300 rounded-full shadow-inner transition-colors duration-300"></div>
+            <div class="toggle-ball absolute w-5 h-5 bg-white rounded-full shadow-md top-0.5 left-0.5 transition-transform duration-300"></div>
+        </label>
+    </div>
+
+    <script>
+        // Optional: Add functionality to toggle a theme
+        const toggle = document.getElementById('toggle');
+        toggle.addEventListener('change', () => {
+            document.body.classList.toggle('bg-gray-900');
+            document.body.classList.toggle('text-white');
+        });
+    </script>
+</body>
+</html>

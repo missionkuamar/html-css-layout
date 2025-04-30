@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table with Hover Effects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen py-12 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Basic Plan -->
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Basic</h3>
+            <p class="text-4xl font-bold text-indigo-600 mb-4">$9<span class="text-lg text-gray-600">/mo</span></p>
+            <ul class="text-gray-600 mb-6 space-y-2">
+                <li>10 Projects</li>
+                <li>100GB Storage</li>
+                <li>Email Support</li>
+            </ul>
+            <a href="#" class="inline-block bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">Choose Plan</a>
+        </div>
+        <!-- Pro Plan (Featured) -->
+        <div class="bg-indigo-600 text-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative">
+            <span class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-gray-800 px-3 py-1 rounded-full text-sm font-semibold">Popular</span>
+            <h3 class="text-2xl font-semibold mb-4">Pro</h3>
+            <p class="text-4xl font-bold mb-4">$29<span class="text-lg">/mo</span></p>
+            <ul class="mb-6 space-y-2">
+                <li>Unlimited Projects</li>
+                <li>500GB Storage</li>
+                <li>Priority Support</li>
+            </ul>
+            <a href="#" class="inline-block bg-white text-indigo-600 py-2 px-4 rounded-lg hover:bg-gray-100 transition">Choose Plan</a>
+        </div>
+        <!-- Enterprise Plan -->
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Enterprise</h3>
+            <p class="text-4xl font-bold text-indigo-600 mb-4">$99<span class="text-lg text-gray-600">/mo</span></p>
+            <ul class="text-gray-600 mb-6 space-y-2">
+                <li>Custom Solutions</li>
+                <li>1TB Storage</li>
+                <li>24/7 Support</li>
+            </ul>
+            <a href="#" class="inline-block bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">Choose Plan</a>
+        </div>
+    </div>
+</body>
+</html>

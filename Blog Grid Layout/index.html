@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Grid Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-inter">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">BlogHub</a>
+        </nav>
+    </header>
+
+    <!-- Blog Grid Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8">Latest Posts</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-slide-up">
+                <img src="https://via.placeholder.com/400x250" alt="Blog Post" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-gray-800">Top 10 Tech Trends</h2>
+                    <p class="text-gray-600 mt-2">Explore the latest innovations shaping the future.</p>
+                    <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-700">Read More</a>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-slide-up">
+                <img src="https://via.placeholder.com/400x250" alt="Blog Post" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-gray-800">AI in 2025</h2>
+                    <p class="text-gray-600 mt-2">How AI is transforming industries.</p>
+                    <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-700">Read More</a>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-slide-up">
+                <img src="https://via.placeholder.com/400x250" alt="Blog Post" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-gray-800">Web Dev Tips</h2>
+                    <p class="text-gray-600 mt-2">Boost your skills with these tips.</p>
+                    <a href="#" class="mt-4 inline-block text-indigo-600 hover:text-indigo-700">Read More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.6s ease-in-out; }
+    </style>
+</body>
+</html>
